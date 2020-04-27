@@ -1,0 +1,345 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>评价 未评价</title>
+    <link rel="stylesheet" type="text/css" href="../../../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../css/aui.css" />
+    <style type="text/css">
+        .aui-bar{
+            background: #45C01A;
+        }
+
+
+        .aui-list{
+            background: #E6E6E6;
+        }
+        .aui-icon-right{
+            margin-right: 15px;
+        }
+        .score_bg{
+            background: white;
+            padding-top: 15px;
+        }
+        .score_text1{
+            margin-left: 15px;
+            font-size: 15px;
+        }
+        .score_text2{
+            margin-top: 5px;
+            margin-left: 20px;
+            font-size: 15px;
+        }
+        .flex-container {
+            margin-top: 5px;
+            padding-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .flex-item {
+            border: 1px solid gray;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 13px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .line1{
+            border-bottom:1px solid gray;
+        }
+
+        .score_text3{
+            margin-left: 15px;
+            font-size: 15px;
+            padding-bottom: 20px;
+        }
+        .flex-container2 {
+            margin-top: 5px;
+            padding-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .flex-item2 {
+            border: 1px solid gray;
+            width: 40%;
+            height: 50px;
+            line-height: 50px;
+            font-size: 13px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .input_bg{
+            background: white;
+            padding: 15px;
+            height: 150px;
+        }
+        .aui-list-item-input{
+            background: white;
+            height: 120px;
+            border: 1px solid gray;
+            font-size: 13px;
+        }
+
+        .btn_bg{
+            background: white;
+            padding: 15px;
+            margin-bottom: 30px
+        }
+        .okBtn{
+            background: white;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 5px;
+            background-color: #45C01A;
+            font-size: 17px;
+            text-align:center;
+            color: white;
+        }
+
+        .danxuanSel-bgColor {
+          /*border: 1px solid red;*/
+          border: 2px solid #45C01A;
+
+        }
+
+
+    </style>
+
+</head>
+
+<body >
+
+<header class="aui-bar aui-bar-nav" id="header">
+    <a class="aui-pull-left aui-btn" tapmode onclick="closeWin()">
+        <span class="aui-iconfont aui-icon-left"></span>
+    </a>
+    <div class="aui-title">评价</div>
+</header>
+
+
+<ul class="aui-list aui-media-list">
+    <li class="aui-list-item aui-list-item-middle">
+        <div class="aui-media-list-item-inner">
+            <div class="aui-list-item-inner ">
+                <div class="aui-list-item-text">
+                    <div class="aui-list-item-title aui-font-size-14" id="siteName">名称名称名称</div>
+                </div>
+                <div class="aui-list-item-text" id="workOrderID">
+                    JX-1234588977
+                </div>
+            </div>
+            <i class="aui-iconfont aui-icon-right"></i>
+        </div>
+    </li>
+</ul>
+
+<div class="score_bg">
+    <div class="score_text1">请问您对本次服务是否满意？</div>
+    <div class="score_text2">（1-10评分，1分不满意，10分特别满意）</div>
+    <div class="flex-container">
+        <div class="flex-item" >1分 </div>
+        <div class="flex-item">2分 </div>
+        <div class="flex-item">3分 </div>
+        <div class="flex-item">4分 </div>
+        <div class="flex-item">5分 </div>
+    </div>
+    <div class="flex-container">
+        <div class="flex-item">6分 </div>
+        <div class="flex-item">7分 </div>
+        <div class="flex-item">8分 </div>
+        <div class="flex-item">9分 </div>
+        <div class="flex-item">10分 </div>
+    </div>
+</div>
+
+<div class="line1"></div>
+
+<div class="score_bg">
+    <div class="score_text3">本次服务哪些地方让您觉得满意？（最多选3项）</div>
+    <div class="flex-container2">
+        <div class="flex-item2" >人员态度好</div>
+        <div class="flex-item2">人员技能专业</div>
+    </div>
+    <div class="flex-container2">
+        <div class="flex-item2">人员面貌、着装整洁</div>
+        <div class="flex-item2">人员按时巡检</div>
+    </div>
+    <div class="flex-container2">
+        <div class="flex-item2" >内容全面</div>
+        <div class="flex-item2">团队专业</div>
+    </div>
+    <div class="flex-container2">
+        <div class="flex-item2">结果描述全面</div>
+        <div class="flex-item2">人员作业规范</div>
+    </div>
+    <div class="flex-container2">
+        <div class="flex-item2" >人员认真负责</div>
+        <div class="flex-item2">其他</div>
+    </div>
+</div>
+
+<div class="line1"></div>
+
+<div class="input_bg">
+    <div class="aui-list-item-input" id="input">
+        <textarea placeholder="请输入"></textarea>
+    </div>
+</div>
+
+
+<div class="btn_bg">
+    <div class="okBtn" id="okBtn" tapmode="" onclick="clickBtn()">提 交</div>
+</div>
+
+
+
+
+
+
+</body>
+
+<script type="text/javascript" src="../../../../script/api.js"></script>
+<script>
+
+      var selectfraction='';//单选
+      var selectText1='';//多选
+      var selectText2='';
+      var selectText3='';
+
+    apiready = function(){
+
+        $api.fixStatusBar($api.byId('header'));
+
+
+          danxuan();
+          duoxuan();
+
+
+
+    }
+
+    //单选评价
+    function danxuan() {
+
+      var items = $api.domAll(".flex-item");
+      for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        $api.addEvt(items[i], 'click', function(){
+            console.log($api.html(this));
+            for (var j = 0; j< items.length; j++) {
+              if (  $api.hasCls(items[j], 'danxuanSel-bgColor') ){
+                      $api.removeCls(items[j],'danxuanSel-bgColor');
+                }
+            }
+            $api.addCls(this,'danxuanSel-bgColor');
+            selectfraction = $api.html(this);
+        });
+      }
+
+    }
+
+    //多选评价
+    //多选评价
+  function duoxuan() {
+
+      var duoxuanSelected = 0;
+
+      var items = $api.domAll(".flex-item2");
+      for (var i = 0; i < items.length; i++) {
+          $api.addEvt(items[i], 'click', function(){
+              // console.log($api.html(this));
+              var isHava = $api.hasCls(this, 'danxuanSel-bgColor');
+              if (!isHava){
+
+                  if (duoxuanSelected<3){
+                      duoxuanSelected ++;
+                      $api.addCls(this,'danxuanSel-bgColor');
+
+                      if (duoxuanSelected ==1){
+                          selectText1 = $api.html(this);
+                      }else  if (duoxuanSelected ==2){
+                          selectText2 = $api.html(this);
+                      }else if (duoxuanSelected ==3){
+                          selectText3 = $api.html(this);
+                      }
+
+
+
+                  }else {
+
+                      api.confirm({
+
+                          title:"提示",
+                          msg: '最多选择3项，是否清空重新选择',
+                          buttons: ['确定', '取消']
+                      }, function(ret, err) {
+                          if (ret.buttonIndex ==1 ) {
+
+                              var items = $api.domAll(".flex-item2");
+                              for (var i = 0; i< items.length; i++) {
+                                  if (  $api.hasCls(items[i], 'danxuanSel-bgColor') ){
+                                      $api.removeCls(items[i],'danxuanSel-bgColor');
+                                  }
+                              }
+                              duoxuanSelected = 0;
+                              selectText1 ='';
+                              selectText2 ='';
+                              selectText3 ='';
+                          }
+
+                      });
+
+
+                  }
+
+
+              }
+
+
+
+          });
+      }
+
+  }
+
+
+    function closeWin(){
+        api.closeWin({
+        });
+    }
+
+    function clickBtn() {
+
+      if (selectfraction){
+         selectfraction =selectfraction.substr(0,1);
+     }
+
+      api.showProgress({
+          title: '努力加载中...',
+          // text: '',
+      });
+
+      setTimeout(function () {
+          api.hideProgress();
+          api.execScript({
+                         name: 'evaluate_win',
+                         frameName: 'evaluate_noList',
+                         script: 'requestData()'
+                     });
+          api.closeWin({});
+
+      }, 3000);
+
+
+    }
+
+
+
+</script>
+
+</html>

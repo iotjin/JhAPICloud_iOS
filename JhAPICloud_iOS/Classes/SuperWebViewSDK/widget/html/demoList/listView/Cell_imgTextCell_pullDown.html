@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+
+
+    <title>下拉刷新 上拉加载</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+
+    <style type="text/css">
+
+    /*.aui-bar{
+      background: #45C01A;
+    }*/
+
+
+    .img {
+      width: 3rem;
+      height: 3rem;
+    }
+    #noData{
+    background: white;
+    text-align: center;
+    padding-top: 50px;
+    }
+
+
+    </style>
+  </head>
+
+
+  <body>
+
+
+    <!-- <header class="aui-bar aui-bar-nav" id="header">
+        <a class="aui-pull-left aui-btn" tapmode onclick="closeWin()">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title">下拉刷新</div>
+    </header> -->
+
+
+    <label>Hello APP</label>
+
+      <section id="CellList"></section>
+      <div id="noData"></div>
+
+     </body>
+
+
+
+
+  <script id="template" type="text/x-dot-template">
+      {{~it:value:index}}
+      <div class="bgCell">
+
+          <ul class="aui-list aui-media-list">
+                <li class="aui-list-item aui-list-item-middle">
+                    <div class="aui-media-list-item-inner">
+                        <div class="aui-list-item-media">
+                          <img class="img" src= {{=value.imageUrl}} >
+                        </div>
+                        <div class="aui-list-item-inner aui-list-item-arrow">
+                            <div class="aui-list-item-text">
+                                <div class="aui-list-item-title aui-font-size-14">{{=value.title}}</div>
+                            </div>
+                            <div class="aui-list-item-text">
+                                {{=value.content}}
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+      </div>
+    {{~}}
+  </script>
+
+
+  <script type="text/javascript" src="../../../script/api.js"></script>
+  <script type="text/javascript" src="../../../script/doT.min.js"></script>
+
+  <script type="text/javascript">
+
+
+          var index = 0;
+          var _data;
+
+          apiready = function() {
+
+          // $api.fixStatusBar($api.byId('header'));
+
+            initRefresh();
+            api.refreshHeaderLoading();
+            initEventListenter();
+
+
+          };
+
+          function closeWin(){
+              api.closeWin({
+              });
+          }
+
+
+
+       function initRefresh() {
+           api.setRefreshHeaderInfo({
+               loadingImg: 'widget://image/arrow_down.png',
+               bgColor: '#ccc',
+               textColor: '#fff',
+               textDown: '下拉刷新...',
+               textUp: '松开刷新...',
+               showTime: true
+           }, function(ret, err) {
+
+               requestData();
+
+           });
+       }
+
+       function requestData(isLoadMore) {
+
+            //  $api.byId('noData').style.display = "none";
+
+                   if (isLoadMore) {
+                     index ++;
+                   } else {
+                     index = 0;
+                   }
+
+                 api.ajax({
+                     url: 'https://www.fastmock.site/mock/1010b262a743f0b06c565c7a31ee9739/root/getPageArrDic',
+                     method: 'post',
+                     data: {
+                         values: {
+                            //  noData: "true",
+                             page: index
+                         }
+                     }
+                 }, function(ret, err) {
+                   setTimeout(api.refreshHeaderLoadDone(), '500');
+
+                  // console.log(JSON.stringify(ret));
+                  // console.log(JSON.stringify(ret["data"]));
+
+                           if (ret) {
+
+                            var tempFn = doT.template($api.text($api.byId('template')));
+                            _data =  ret["data"];
+
+                            console.log(_data.length);
+
+                              if (isLoadMore) {
+
+                                if (_data.length > 0){
+                                    $api.append($api.byId('CellList'), tempFn(_data));
+                                  }else {
+                                       api.toast({msg: '已无更多数据', });
+                                }
+
+
+                              }else {
+
+
+
+                                if (_data.length > 0){
+                                    $api.html($api.byId('CellList'), tempFn(_data));
+                                  }else {
+                                     api.toast({msg: '暂无数据', });
+                                     $api.byId('noData').style.display = "block";
+                                     $api.byId('noData').innerHTML = "暂无数据";
+                                }
+
+                              }
+                              api.parseTapmode();
+
+                           } else {
+                               api.alert({ msg: JSON.stringify(err) });
+                           }
+
+                 });
+       }
+
+
+
+       function initEventListenter() {
+
+           api.addEventListener({
+               name: 'scrolltobottom',
+               extra: {
+                   threshold: 300
+               }
+           }, function(ret, err) {
+
+
+                 if (_data.length > 0){
+                     requestData(true);
+                  }
+
+           });
+
+
+           api.addEventListener({
+               name:'navbackbtn'
+           },function(){
+               alert('点击了返回按钮');
+           });
+
+           api.addEventListener({
+               name: 'navitembtn'
+           }, function(ret, err) {
+
+             if (ret.type == 'left') {
+
+                  api.closeWin();
+
+             }
+
+               if (ret.type == 'right') {
+                   api.toast({
+                       msg: '点击了右边按钮',
+                       duration: 2000,
+                       location: 'bottom'
+                   });
+               }
+           });
+
+
+
+
+       }
+
+
+
+
+  </script>
+
+  </html>

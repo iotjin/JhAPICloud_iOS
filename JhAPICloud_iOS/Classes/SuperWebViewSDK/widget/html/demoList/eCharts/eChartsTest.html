@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>ECharts-柱状图</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+
+    <style type="text/css">
+
+    body {
+    	background-color: white;
+    }
+
+    .aui-bar{
+      background: #45C01A;
+    }
+
+    .zhny-defectChart-title{padding:5px 0 5px 15px;color:#333;background:#eee;border:1px solid #e1e1e1;font-weight:600;}
+    .zhny-defectChart-chart2{padding:0px 15px 10px;}
+    .zhny-defectChart-msg{color:#333;text-align:center;margin-top:10px;}
+
+
+
+
+
+    </style>
+</head>
+
+<body>
+
+
+
+  <header class="aui-bar aui-bar-nav baseThemeColor" id="header">
+      <a class="aui-pull-left aui-btn" tapmode onclick="closeWin()">
+          <span class="aui-iconfont aui-icon-left"></span>
+      </a>
+      <div class="aui-title">ECharts-柱状图</div>
+  </header>
+
+
+  <div class="zhny-defectChart-title" style="height: 38px;display: flex;align-items: center;justify-content: flex-start">ECharts-柱状图</div>
+
+
+  <div id="main" style="width: 375px;height:400px;"></div>
+
+
+</body>
+
+
+
+
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript" src="../../../script/echarts-all.js"></script>
+
+
+<script>
+
+  var selectfraction;
+	apiready = function(){
+
+
+    $api.fixStatusBar($api.byId('header'));
+
+
+
+    initECharts();
+
+
+
+
+	}
+
+  function closeWin(){
+      api.closeWin({
+      });
+  }
+
+
+function initECharts() {
+
+  // 基于准备好的dom，初始化echarts实例
+  var myChart = echarts.init(document.getElementById('main'));
+
+  // 指定图表的配置项和数据
+  var option = {
+      title: {
+          text: 'ECharts-柱状图'
+      },
+      tooltip: {},
+      //图例
+      legend: {
+          data:['销量']
+      },
+      xAxis: {
+          data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+      },
+      yAxis: {},
+      series: [{
+          name: '销量',
+          type: 'bar',
+          data: [5, 20, 36, 10, 10, 20]
+      }]
+  };
+
+  // 使用刚指定的配置项和数据显示图表。
+  myChart.setOption(option);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<html>
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+
+
+    <title>图文 template-native 模板</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+
+    <style type="text/css">
+    .aui-bar{
+      background: #45C01A;
+    }
+
+
+    </style>
+  </head>
+
+
+  <body>
+
+
+    <header class="aui-bar aui-bar-nav" id="aui-header">
+        <a class="aui-btn aui-pull-left" tapmode onclick="closeWin()">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title">template-native 模板</div>
+        <a class="aui-btn aui-pull-right">
+            <span class="aui-iconfont aui-icon-plus"></span>
+        </a>
+    </header>
+
+
+    <label>Hello APP</label>
+
+      <section id="CellList">
+
+      </section>
+
+
+
+  </body>
+
+
+
+
+  <script type="text/html" id="template">
+
+      <%for(let i =0;i< data.length; i++){%>
+
+      <div class="bgCell">
+        <ul class="aui-list aui-media-list">
+              <li class="aui-list-item aui-list-item-middle">
+                  <div class="aui-media-list-item-inner">
+                      <div class="aui-list-item-media" style="width: 3rem;">
+                          <img src="../image/demo5.png" class="aui-img-round aui-list-img-sm">
+                      </div>
+                      <div class="aui-list-item-inner aui-list-item-arrow">
+                          <div class="aui-list-item-text">
+                              <div class="aui-list-item-title aui-font-size-14"> <%=data[i].name%></div>
+                          </div>
+
+
+                          <%if (data[i].text=="text1"){ %>
+                              <div>如果text==text1, 显示这段话 </div>
+                          <% }else if (data[i].text =="text2"){%>
+                                <div>2222222</div>
+                          <%} else{%>
+                              <div><%=data[i].text%></div>
+                          <%}%>
+
+                      </div>
+                  </div>
+              </li>
+          </ul>
+      </div>
+
+  <%}%>
+
+  </script>
+
+
+
+  <script type="text/javascript" src="../../../script/api.js"></script>
+  <!-- 引入好layer.js后，直接用即可 -->
+  <script type="text/javascript" src="../../../lib/layui/layui.js"></script>
+  <script type="text/javascript" src="../../../script/template-native.js"></script>
+
+  <script type="text/javascript">
+
+
+          apiready = function() {
+
+            var header = $api.byId('aui-header');// 获取头部
+            $api.fixStatusBar(header); // 处理ios兼容
+
+
+            initData();
+
+
+
+          };
+
+
+          function closeWin(){
+              api.closeWin({
+              });
+          }
+
+
+
+        function initData() {
+
+
+                     var ALLData = {
+                          			"img": "../image/bottombtn0102.png",
+                          			"code": 1,
+                          			"msg": "所有用户",
+                          			"data": [{
+                                  				"id": 1,
+                                  				"name": "name1",
+                                  				"text": "text1",
+                                  				"role": "admin",
+                                  				"create_time": "2018-04-04T07:21:31.000Z"
+                                  			}, {
+                                  				"id": 2,
+                                  				"name": "name2",
+                                  				"text": "text2",
+                                  				"role": "user",
+                                  				"create_time": "2018-04-04T07:23:24.000Z"
+                                  			}, {
+                                  				"id": 3,
+                                  				"name": "name3",
+                                  				"text": "text3",
+                                  				"role": "jie",
+                                  				"create_time": "2018-04-04T07:23:24.000Z"
+                                  			}]
+                          		}
+
+
+
+            // console.log("data---"+ JSON.stringify(ALLData["data"]));
+          // console.log("data---"+ JSON.stringify(ALLData));
+
+        let html = template('template',{data:ALLData["data"]} );
+          $api.html($api.byId('CellList'), html);
+          api.parseTapmode();
+
+
+        }
+
+
+
+  </script>
+
+  </html>

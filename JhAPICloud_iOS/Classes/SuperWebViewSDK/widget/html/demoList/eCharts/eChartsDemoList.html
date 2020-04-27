@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>eChartsDemoList</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../.././configs/commonCSS.css"/>
+
+    <style type="text/css">
+
+
+    #cell_item{
+    height: 50px;
+    }
+
+
+    </style>
+</head>
+
+<body>
+
+
+
+
+
+  <header class="aui-bar aui-bar-nav baseThemeColor" id="header">
+      <a class="aui-pull-left aui-btn" tapmode onclick="closeWin()">
+          <span class="aui-iconfont aui-icon-left"></span>
+      </a>
+      <div class="aui-title">eChartsDemoList</div>
+  </header>
+
+
+    <ul class="aui-list aui-list-in">
+    <section id="CellList">
+    </section>
+    </ul>
+
+
+
+    </body>
+
+
+
+    <script id="template" type="text/x-dot-template">
+        {{~it:value:index}}
+
+          <li class="aui-list-item" id="cell_item" tapmode="" onclick="ClickItem( '{{=value}}' )">
+              <div class="aui-list-item-inner aui-list-item-arrow">
+                {{=value}}
+              </div>
+          </li>
+
+        {{~}}
+    </script>
+
+
+    <script type="text/javascript" src="../../../script/api.js"></script>
+    <script type="text/javascript" src="../../../script/doT.min.js"></script>
+    <script type="text/javascript" src="../../../script/template-web.js"></script>
+    <script type="text/javascript" src="../../../script/template-native.js"></script>
+    <script>
+
+    	apiready = function(){
+
+
+        $api.fixStatusBar($api.byId('header'));
+
+        initData();
+
+    	}
+
+      function closeWin(){
+          api.closeWin({
+          });
+      }
+
+      function initData() {
+          var ALLData = ["ECharts-柱状图","ECharts-饼状图","ECharts-柱状图 动态数据","ECharts-柱状图 动态数据2"];
+          // console.log("data---"+ JSON.stringify(ALLData));
+
+          // dot 模板
+          var tempFn = doT.template($api.text($api.byId('template')));
+          $api.html($api.byId('CellList'), tempFn(ALLData));
+          api.parseTapmode();
+
+
+
+
+      }
+      function ClickItem(str) {
+        console.log(str);
+
+        if (str == "ECharts-柱状图") {
+                api.openWin({
+                    name: 'eChartsTest',
+                    url: 'eChartsTest.html',
+                });
+        }
+
+        if (str == "ECharts-饼状图") {
+                api.openWin({
+                    name: 'eChartsTest2',
+                    url: 'eChartsTest2.html',
+                });
+        }
+
+        if (str == "ECharts-柱状图 动态数据") {
+                api.openWin({
+                    name: 'eChartsTest3',
+                    url: 'eChartsTest3.html',
+                });
+        }
+        if (str == "ECharts-柱状图 动态数据2") {
+                api.openWin({
+                    name: 'eChartsTest4',
+                    url: 'eChartsTest4.html',
+                });
+        }
+
+
+
+      }
+
+
+
+    </script>
+
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>ECharts-柱状图 动态数据</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+
+    <style type="text/css">
+
+    body {
+    	background-color: white;
+    }
+
+    .aui-bar{
+      background: #45C01A;
+    }
+    .PeriodPower-bgView{
+        /*background-color: white;*/
+        height: 200px;
+        margin: 15px;
+        /*border: 2px solid #cbcbcb;*/
+    }
+
+
+    </style>
+</head>
+
+<body>
+
+
+
+  <header class="aui-bar aui-bar-nav baseThemeColor" id="header">
+      <a class="aui-pull-left aui-btn" tapmode onclick="closeWin()">
+          <span class="aui-iconfont aui-icon-left"></span>
+      </a>
+      <div class="aui-title">柱状图 动态数据</div>
+  </header>
+
+
+  <div class="PeriodPower-bgView" id="PeriodPower-bgView" style="height:500px"></div>
+
+
+
+</body>
+
+
+
+
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript" src="../../../script/echarts-all.js"></script>
+
+
+<script>
+
+  var selectfraction;
+  var myChart_PeriodPower; // 标记下是否初始化过 echarts 时段电量饼状图
+	apiready = function(){
+
+
+    $api.fixStatusBar($api.byId('header'));
+
+
+    var data = {
+        labelData:[
+            // {name: "-", value: 0}
+              {name: "尖", value: 50},
+              {name: "峰", value: 60},
+              {name: "平", value: 30},
+              {name: "谷", value: 10}
+        ],
+    };
+    initECharts(data);
+
+	}
+
+  function closeWin(){
+      api.closeWin({
+      });
+  }
+
+
+
+function initECharts2222(param) {
+
+  // 基于准备好的dom，初始化echarts实例
+  var myChart = echarts.init(document.getElementById('PeriodPower-bgView'));
+
+  // 指定图表的配置项和数据
+  var option = {
+      title: {
+      text: 'ECharts-柱状图',
+      subtext: 'subtext',
+      left: 'center'
+      },
+      //提示
+      tooltip: {
+      trigger: 'item',
+      // formatter: '{a} <br/>{b} : {c} ({d}%)'
+      },
+
+      color:["#6499DD","#E67271","#C8EC88","#997BC1",],
+      //图例
+      legend: {
+            orient:'vertical',
+            type: 'scroll',
+            right: 10,
+            top:'middle',
+            data: ['尖','峰','平','谷']
+         },
+         series: [
+             {
+                 type: 'pie',
+                 center: ['40%', '50%'],    //圆心坐标
+                 radius: '55%',            //饼图的半径
+                 label: {
+                     show: true,
+                     position: 'inner',
+                     color:'#000000',
+                     formatter: '\n{c}\n',
+                    //  formatter: '{b}\n',
+                     //  {a}：系列名。  {b}：数据名。  {c}：数据值。
+
+
+                 },
+                 // label: {
+                 //     normal: {
+                 //         formatter: '{c}',
+                 //         position: 'inside'
+                 //     }
+                 // },
+                 labelLine: {
+                     show: false
+                 },
+                 emphasis: {
+                    itemStyle: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                },
+                data: param.labelData
+             },
+           ]
+  };
+
+  myChart.setOption(option);
+
+}
+
+
+
+   function initECharts(param) {
+
+       if (myChart_PeriodPower) {
+           myChart_PeriodPower.dispose();//销毁
+       }
+
+       myChart_PeriodPower = echarts.init(document.getElementById('PeriodPower-bgView'));
+       // 指定图表的配置项和数据
+       var option = {
+           title: {
+           text: 'ECharts-柱状图',
+           subtext: 'subtext',
+           left: 'center'
+           },
+           //提示
+           tooltip: {
+               trigger: 'item',
+               // formatter: '{a} <br/>{b} : {c} ({d}%)'
+           },
+           color:["#6499DD","#E67271","#C8EC88","#997BC1",],
+           //图例
+           legend: {
+               orient:'vertical',
+               type: 'scroll',
+               right: 10,
+               top:'middle',
+               data: ['尖','峰','平','谷']
+           },
+           series: [
+               {
+                   type: 'pie',
+                   center: ['40%', '50%'],
+                   radius: '75%',
+                   label: {
+                       show: true,
+                       position: 'inner',
+                       formatter: '{c}',
+                       color:'#000000',
+                   },
+                   labelLine: {
+                       show: false
+                   },
+                   emphasis: {
+                       itemStyle: {
+                           shadowBlur: 10,
+                           shadowOffsetX: 0,
+                           shadowColor: 'rgba(0, 0, 0, 0.5)'
+                       }
+                   },
+                   data: param.labelData
+               },
+           ]
+       };
+
+       myChart_PeriodPower.showLoading();
+       setTimeout(function () {
+           myChart_PeriodPower.hideLoading();
+       }, 1000);
+       // 使用刚指定的配置项和数据显示图表。
+       myChart_PeriodPower.setOption(option);
+       window.onresize = function () {
+           myChart_PeriodPower.resize();
+       };
+
+   }
+
+
+
+</script>
+
+</html>

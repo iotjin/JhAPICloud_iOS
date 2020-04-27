@@ -1,0 +1,355 @@
+<!DOCTYPE HTML>
+<html>
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+
+
+    <title>图文 dot模板</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+
+    <link rel="stylesheet" type="text/css" href="../../../lib/layui/css/layui.css" />
+
+    <style type="text/css">
+    .aui-bar{
+      background: #45C01A;
+    }
+
+    .icon {
+       width: 1.8em; height: 1.8em;
+       fill: currentColor;
+	   margin-top: 8px;
+	   float: left;
+    }
+
+    /*.layui-colla-icon {
+    display: none;
+    }*/
+
+  /*.layui-colla-icon{
+    background: red;
+    background-image: url(../../../image/ic_back_u.png);
+    position:absolute;
+    left:15px;
+    top:0;
+    font-size:14px
+  }*/
+
+
+    </style>
+  </head>
+
+
+  <body>
+
+
+
+    <header class="aui-bar aui-bar-nav" id="aui-header">
+        <a class="aui-btn aui-pull-left" tapmode onclick="closeWin()">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title">图文 dot模板</div>
+        <a class="aui-btn aui-pull-right">
+            <span class="aui-iconfont aui-icon-plus"></span>
+        </a>
+    </header>
+
+
+    <label>Hello APP</label>
+
+      <section id="CellList">
+
+      </section>
+
+      <div class="layui-collapse">
+      <div class="layui-colla-item">
+        <h2 class="layui-colla-title">杜甫</h2>
+        <div class="layui-colla-content layui-show">内容区域</div>
+      </div>
+      <div class="layui-colla-item">
+        <h2 class="layui-colla-title">李清照</h2>
+        <div class="layui-colla-content">内容区域</div>
+      </div>
+      <div class="layui-colla-item">
+        <h2 class="layui-colla-title">鲁迅</h2>
+        <div class="layui-colla-content">内容区域</div>
+      </div>
+      </div>
+
+
+      <div class="layui-collapse">
+        <div class="layui-colla-item">
+          <h2 class="layui-colla-title">杜甫</h2>
+              <div class="layui-colla-content layui-show">
+
+                    <ul class="aui-list aui-list-in">
+                        <li class="aui-list-item">
+                            <div class="aui-list-item-inner aui-list-item-arrow">
+                                Item1
+                            </div>
+                        </li>
+                    </ul>
+
+              </div>
+        </div>
+      </div>
+
+
+
+
+
+  </body>
+
+
+
+
+  <script id="template" type="text/x-dot-template">
+      {{~it:value:index}}
+      <div class="bgCell">
+        <ul class="aui-list aui-media-list">
+              <li class="aui-list-item aui-list-item-middle">
+                  <div class="aui-media-list-item-inner">
+                      <div class="aui-list-item-media" style="width: 3rem;">
+                          <img src="../image/demo5.png" class="aui-img-round aui-list-img-sm">
+                      </div>
+                      <div class="aui-list-item-inner aui-list-item-arrow">
+                          <div class="aui-list-item-text">
+                              <div class="aui-list-item-title aui-font-size-14">{{=value.name}}</div>
+                          </div>
+
+                           {{? value.text ==="text1" }}
+                            <div>11111111</div>
+                           {{??}}
+                            <div>2222222</div>
+                            {{?}}
+
+                            {{? value.text ==="text1" }}
+                             <div>如果返回的text == text1 ,这是处理之后的数据 </div>
+                             {{?? value.text === "text3"}}
+                             <div>如果text == text3 ,这是处理之后的数据</div>
+                             {{??}}
+                             <div>否则正常显示返回的数据 {{=value.text}} </div>
+                             {{?}}
+                      </div>
+                  </div>
+              </li>
+          </ul>
+      </div>
+    {{~}}
+  </script>
+
+
+
+
+  <!-- <script type="text/template" id="template"> -->
+
+ <!--   <script id="template" type="text/x-dot-template">
+      {{~it:value:index}}
+      <div class="bgCell">
+        <ul class="aui-list aui-media-list">
+              <li class="aui-list-item aui-list-item-middle">
+                  <div class="aui-media-list-item-inner">
+                      <div class="aui-list-item-media" style="width: 3rem;">
+                          <img src="../image/demo5.png" class="aui-img-round aui-list-img-sm">
+                      </div>
+                      <div class="aui-list-item-inner aui-list-item-arrow">
+                          <div class="aui-list-item-text">
+                              <div class="aui-list-item-title aui-font-size-14">{{=value.name}}</div>
+                          </div>
+
+                            var aaaa;
+                           {{? value.text ==="text1" }}
+                            <div>11111111</div>
+                           {{??}}
+                            <div>2222222</div>
+                            {{?}}
+                      </div>
+                  </div>
+              </li>
+          </ul>
+      </div>
+    {{~}}
+  </script>
+  -->
+
+  <!-- <script type="text/template" id="template">
+      {{~it:value:index}}
+      <div class="bgCell ">
+          <div class="content" tapmode onclick="fnOpenWareWin('{{=value.id}}');">
+              <img onload="fnLoadImage(this)" data-url="{{=value.thumbnail.url}}" class="thumbnail" src="../image/default_rect.png">
+              <div class="info">
+                  <span class="price">{{=value.price}}</span>
+                  <span class="unit">/{{=value.unit}}</span>
+                  <span class="origin-price">&nbsp;超市:<del>{{=value.originPrice}}元</del></span>
+              </div>
+              <div class="control">
+                  <div class="panel">
+                      <img class="minus" src="../image/minus.png">
+                      <div class="count">0</div>
+                  </div>
+                  <img class="add" src="../image/add.png">
+              </div>
+          </div>
+      </div>
+      {{?}} {{~}}
+  </script> -->
+
+
+
+
+
+  <script type="text/javascript" src="../../../script/api.js"></script>
+  <!-- 引入好layer.js后，直接用即可 -->
+  <script type="text/javascript" src="../../../lib/layui/layui.js"></script>
+  <script type="text/javascript" src="../../../script/doT.min.js"></script>
+
+  <script type="text/javascript">
+
+
+          apiready = function() {
+
+            var header = $api.byId('aui-header');// 获取头部
+            $api.fixStatusBar(header); // 处理ios兼容
+
+
+            initData();
+
+
+            layui.use('element', function(){
+              var element = layui.element;
+            // console.log("element--"+ JSON.stringify(element));
+            });
+
+
+
+
+          };
+
+
+          function closeWin(){
+              api.closeWin({
+              });
+          }
+
+
+
+        function initData() {
+
+                     var ALLData = {
+                          			"img": "../image/bottombtn0102.png",
+                          			"code": 1,
+                          			"msg": "所有用户",
+                          			"data": [{
+                                  				"id": 1,
+                                  				"name": "name1",
+                                  				"text": "text1",
+                                  				"role": "admin",
+                                  				"create_time": "2018-04-04T07:21:31.000Z"
+                                  			}, {
+                                  				"id": 2,
+                                  				"name": "name2",
+                                  				"text": "text2",
+                                  				"role": "user",
+                                  				"create_time": "2018-04-04T07:23:24.000Z"
+                                  			}, {
+                                  				"id": 3,
+                                  				"name": "name3",
+                                  				"text": "text3",
+                                  				"role": "jie",
+                                  				"create_time": "2018-04-04T07:23:24.000Z"
+                                  			}]
+                          		}
+
+
+
+
+
+                    // var ALLData =[
+                    //               {
+                    //                "name": "name1",
+                    //                "text": "text1",
+                    //              },
+                    //              {
+                    //                "name": "name2",
+                    //                "text": "text2",
+                    //              },
+                    //               {
+                    //                "name": "name3",
+                    //                "text": "text3",
+                    //              }];
+
+
+                      // console.log("data---"+ JSON.stringify(ALLData["data"]));
+                    // console.log("data---"+ JSON.stringify(ALLData));
+
+
+                //调用方式
+          var tempFn = doT.template($api.text($api.byId('template')));
+          $api.html($api.byId('CellList'), tempFn(ALLData["data"]));
+
+
+                      // var CellList = $api.byId('CellList');
+                      // // 1. 编译模板函数
+                      // var tempFn = doT.template($api.byId('template').innerHTML);
+                      // var resultText = tempFn(ALLData["data"]);
+                      //
+                      // // 2. 多次使用模板函数
+                      // // var resultText = tempFn(ALLData);
+                      // // if (loadMore_) {
+                      // //     $api.append(list, resultText);
+                      // // } else {
+                      // //     $api.html(list, resultText);
+                      // // }
+                      //
+                      // $api.html(CellList, resultText);
+
+                      api.parseTapmode();
+
+                      // if (loadMore_) {
+                      //     if (data_.length < LIMIT) {
+                      //         var pushStatus = $api.byId('pushStatus');
+                      //         pushStatus.innerHTML = "没有啦！";
+                      //     }
+                      // }
+
+        }
+
+
+
+        /**
+
+        {{=插入值}}
+
+        {{?...}} if语句
+
+        {{？}}if结束
+
+        {{~it:value:index}}for语句
+
+        {{~}}for结束
+
+        {{ }}     for evaluation 模板标记符
+        {{= }}    for interpolation 输出显示，默认变量名叫it
+        {{! }}    for interpolation with encoding 编码后输出显示
+        {{? }}    for conditionals 条件分支，if条件的简写
+        {{~ }}    for array iteration 遍历数组
+
+        //使用步骤
+        数据源  ： json
+        模板 ：   数据显示的格式
+        区域 ：   数据显示的位置
+        调用方试 ： 填充数据
+
+        4.doT.js框架下载链接 https://github.com/olado/doT
+
+
+        */
+
+  </script>
+
+  </html>

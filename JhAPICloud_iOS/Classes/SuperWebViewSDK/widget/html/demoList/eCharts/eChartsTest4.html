@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>ECharts-柱状图 动态数据2</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+
+    <style type="text/css">
+
+    body {
+    	background-color: white;
+    }
+
+    .aui-bar{
+      background: #45C01A;
+    }
+    .PeriodPower-bgView{
+        /*background-color: white;*/
+        height: 200px;
+        margin: 15px;
+        /*border: 2px solid #cbcbcb;*/
+    }
+
+
+    </style>
+</head>
+
+<body>
+
+
+
+  <header class="aui-bar aui-bar-nav baseThemeColor" id="header">
+      <a class="aui-pull-left aui-btn" tapmode onclick="closeWin()">
+          <span class="aui-iconfont aui-icon-left"></span>
+      </a>
+      <div class="aui-title">柱状图 动态数据2</div>
+  </header>
+
+
+  <div class="PeriodPower-bgView" id="PeriodPower-bgView" style="height:500px"></div>
+
+
+</body>
+
+
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript" src="../../../script/echarts-all.js"></script>
+
+
+<script>
+
+  var selectfraction;
+  var myChart_PeriodPower; // 标记下是否初始化过 echarts 时段电量饼状图
+	apiready = function(){
+
+
+    $api.fixStatusBar($api.byId('header'));
+
+
+    var data = {
+        labelData:[
+            // {name: "-", value: 0}
+              {name: "尖", value: 0},
+              {name: "峰", value: 60},
+              {name: "平", value: 30},
+              {name: "谷", value: 10}
+        ],
+    };
+    initECharts(data);
+
+	}
+
+  function closeWin(){
+      api.closeWin({
+      });
+  }
+
+
+   function initECharts(param) {
+
+       if (myChart_PeriodPower) {
+           myChart_PeriodPower.dispose();//销毁
+       }
+
+       myChart_PeriodPower = echarts.init(document.getElementById('PeriodPower-bgView'));
+       // 指定图表的配置项和数据
+       var option = {
+           title: {
+           text: 'ECharts-柱状图',
+           subtext: 'subtext',
+           left: 'center'
+           },
+           //提示
+           tooltip: {
+               trigger: 'item',
+               formatter: '{c}kwh',
+               // formatter: '{a} <br/>{b} : {c} ({d}%)'  // a  外边 name ; b series  name    c 值   d百分比
+           },
+           color:["#6499DD","#E67271","#C8EC88","#997BC1",],
+           //图例
+           legend: {
+               orient:'vertical',
+               type: 'scroll',
+               right: 15,
+               top:'middle',
+               icon: "circle",// 这个字段控制形状类型包括 circle，rect ，roundRect，triangle，diamond，pin，arrow，none
+               itemWidth: 10, // 设置宽度
+               itemHeight: 10, // 设置高度
+               data: ['尖','峰','平','谷'],
+
+              formatter:  function(name){
+                  var target;
+                  for (var i = 0, l = param.labelData.length; i < l; i++) {
+                      if (param.labelData[i].name == name) {
+                          target = param.labelData[i].value;
+                      }
+                  }
+                  return name + ' ' + target+ 'kwh';
+              }
+
+           },
+           series: [
+               {
+                   type: 'pie',
+                   center: ['30%', '50%'],
+                   radius: '55%',
+                  //  label: {
+                  //      show: true,
+                  //      position: 'inner',
+                  //     //  formatter: '{b}',
+                  //     //  formatter: '{c}',
+                  //      formatter: '{d}%',
+                  //      color:'#000000',
+                  //  },
+                  label:{
+                    show: true,
+                    position: 'inner',
+                    fontSize:10,
+                    formatter:  function(param){
+                      // console.log(param.value);
+                      // console.log(JSON.stringify(param));
+                      return param.value ==0?'': param.percent +'%';
+                    }
+                 },
+                   labelLine: {
+                       show: false,
+                      //  length:5,
+                      //  length2:5
+                   },
+                   emphasis: {
+                       itemStyle: {
+                           shadowBlur: 10,
+                           shadowOffsetX: 0,
+                           shadowColor: 'rgba(0, 0, 0, 0.5)'
+                       }
+                   },
+                   data: param.labelData
+
+               },
+           ]
+       };
+
+       myChart_PeriodPower.showLoading();
+       setTimeout(function () {
+           myChart_PeriodPower.hideLoading();
+       }, 1000);
+       // 使用刚指定的配置项和数据显示图表。
+       myChart_PeriodPower.setOption(option);
+       window.onresize = function () {
+           myChart_PeriodPower.resize();
+       };
+
+   }
+
+
+
+</script>
+
+</html>

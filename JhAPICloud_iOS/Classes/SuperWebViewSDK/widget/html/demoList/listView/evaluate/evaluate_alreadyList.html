@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>已评价列表</title>
+    <link rel="stylesheet" type="text/css" href="../../../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../css/aui.css" />
+
+    <style type="text/css">
+
+        .bgCell{
+            margin: 10px;
+            padding: 10px;
+            border:1px solid#2e96d5;
+            background-color: white;
+        }
+
+        .bgCell div{
+            font-size: 13px;
+        }
+
+        .row2{
+            margin-top: 10px;
+        }
+        .row2 div{
+            display:  inline;
+        }
+        .right{
+            float: right;
+            width: 25%;
+            text-align: center;
+        }
+        .line{
+            display: inline;
+            margin-right: 10px;
+            float: left;
+        }
+        .evaluateText{
+            display: inline;
+        }
+
+        .time {
+            margin-top: 10px;
+            color: darkgray;
+        }
+        #noData{
+            background: white;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+    </style>
+
+</head>
+
+<body >
+
+<label>二</label>
+
+<section id="CellList"></section>
+<div id="noData"></div>
+
+
+
+
+</body>
+
+
+
+<!-- <script id="template" type="text/x-dot-template">
+  {{~it:value:index}}
+    <div class="bgCell" tapmode="" onclick="clickItem( '{{=value}}' )">
+
+        <div class="siteName">{{=value.siteName}}</div>
+
+        <div class="row2">
+            <div class="workOrderId">{{=value.workOrderId}} </div>
+            <div class="right">
+                <div class="line">|</div>
+                <div class="evaluateText">{{=value.evaluateText}}</div>
+            </div>
+        </div>
+
+        <div class="time">{{=value.time}}</div>
+
+    </div>
+    {{~}}
+</script> -->
+
+<script type="text/html" id="template">
+    {{each }}
+    <div class="bgCell" tapmode="" onclick="clickItem('{{$value}}')">
+
+        <div class="siteName">{{$value.siteName}}</div>
+
+        <div class="row2">
+            <div class="workOrderId">{{$value.workOrderId}} </div>
+            <div class="right">
+                <div class="line">|</div>
+
+                {{if $value.evaluateText== "满意" }}
+                <div class="evaluateText" style="color: dodgerblue">{{$value.evaluateText}}</div>
+
+                {{else if $value.evaluateText =="不满意"}}
+                <div class="evaluateText" style="color: red">{{$value.evaluateText}}</div>
+
+                {{else if $value.evaluateText =="特别满意"}}
+                <div class="evaluateText" style="color: orange">{{$value.evaluateText}}</div>
+
+                {{/if}}
+
+            </div>
+        </div>
+
+        <div class="time">{{$value.time}}</div>
+        <div class="time">{{$value.evaluation.content}}</div>
+
+    </div>
+    {{/each}}
+</script>
+
+
+
+
+<script type="text/javascript" src="../../../../script/api.js"></script>
+<!-- <script type="text/javascript" src="../../../../script/doT.min.js"></script> -->
+<script type="text/javascript" src="../../../../script/template-web.js"></script>
+<script>
+
+
+var index = 0;
+var _data;
+apiready = function(){
+
+    initRefresh();
+    api.refreshHeaderLoading();
+    initEventListenter();
+
+}
+
+
+    function initData() {
+
+        var ALLData = {
+            "img": "../image/bottombtn0102.png",
+            "code": 1,
+            "msg": "所有用户",
+            "data": [{
+                "id": 1,
+                "siteName": "名称名称名称名称名称",
+                "workOrderId": "JX-5542124111",
+                "evaluateText": "满意",
+                "time": "2018-04-06 11:11:11",
+            }, {
+                "id": 2,
+                "siteName": "名称名称名称名称名称",
+                "workOrderId": "JX-5542124111",
+                "evaluateText": "满意",
+                "time": "2018-04-06 11:11:11",
+            },{
+                "id": 3,
+                "siteName": "名称名称名称名称名称",
+                "workOrderId": "JX-5542124111",
+                "evaluateText": "满意",
+                "time": "2018-04-06 11:11:11",
+            },{
+                "id": 4,
+                "siteName": "名称名称名称名称名称",
+                "workOrderId": "JX-5542124111",
+                "evaluateText": "十分满意",
+                "time": "2018-04-06 11:11:11",
+            }
+            ]
+        }
+
+
+        var tempFn = doT.template($api.text($api.byId('template')));
+        $api.html($api.byId('CellList'), tempFn(ALLData["data"]));
+        api.parseTapmode();
+
+    }
+
+    function clickItem(item) {
+        console.log("---"+item);
+
+        api.openWin({
+            name: "evaluate_already",
+            url: "./evaluate_already.html"
+        });
+
+    }
+
+    function initRefresh() {
+           api.setRefreshHeaderInfo({
+               bgColor: '#ccc',
+               textColor: '#fff',
+               textDown: '下拉刷新...',
+               textUp: '松开刷新...',
+               showTime: api.systemType === 'android',
+           }, function (ret, err) {
+               requestData();
+           });
+       }
+
+       function requestData(isLoadMore) {
+           $api.byId('noData').style.display = "none";
+           if (isLoadMore) {
+               index ++;
+           } else {
+               index = 0;
+
+           }
+
+           api.ajax({
+               url: 'https://www.fastmock.site/mock/8c0ea7fdd989018f32f02f526bcd0b0e/root/getEvaluationList',
+               method: 'post',
+               data: {
+                   values: {
+                      //  noData: "true",
+                       page: index
+                   }
+               }
+           }, function(ret, err) {
+               setTimeout(api.refreshHeaderLoadDone(), '500');
+
+               // console.log(JSON.stringify(ret));
+               // console.log(JSON.stringify(ret["data"]));
+
+               if (ret ) {
+
+                   _data =  ret["data"];
+                   if (isLoadMore) {
+                       if (_data.length > 0){
+                           $api.append($api.byId('CellList'),template('template', _data));
+                       }else {
+                            api.toast({msg: '已无更多数据', });
+                       }
+                   }else {
+                       if (_data.length > 0){
+                           $api.html($api.byId('CellList'), template('template', _data));
+                       }else {
+                           api.toast({msg: '暂无数据', });
+                           $api.byId('noData').style.display = "block";
+                           $api.byId('noData').innerHTML = "暂无数据";
+                       }
+                   }
+                   api.parseTapmode();
+               } else {
+                   api.alert({ msg: JSON.stringify(err) });
+               }
+
+           });
+       }
+
+
+       function initEventListenter() {
+
+           api.addEventListener({
+               name: 'scrolltobottom',
+               extra: {
+                   threshold: 300
+               }
+           }, function(ret, err) {
+               if (_data.length > 0){
+                   requestData(true);
+               }
+           });
+
+       }
+
+
+</script>
+
+</html>

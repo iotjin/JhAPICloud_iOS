@@ -1,0 +1,972 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4B239CDA660EA5D050FFBBC9 /* libPods-JhAPICloud_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E262AB640041931B7A5280A0 /* libPods-JhAPICloud_iOS.a */; };
+		E95529852048E84A0088B24D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E95529842048E84A0088B24D /* Assets.xcassets */; };
+		E95529932048E84A0088B24D /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E95529922048E84A0088B24D /* ____Tests.m */; };
+		E955299E2048E84A0088B24D /* ____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E955299D2048E84A0088B24D /* ____UITests.m */; };
+		E9552A142048E9010088B24D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9552A122048E9010088B24D /* AppDelegate.m */; };
+		E9552A152048E9010088B24D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9552A132048E9010088B24D /* main.m */; };
+		E9B9AA3B2340B4C3004DBB37 /* UIViewController+JhDealloc.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B9AA392340B4C3004DBB37 /* UIViewController+JhDealloc.m */; };
+		E9B9AA3E2340B4CC004DBB37 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B9AA3C2340B4CB004DBB37 /* UIView+Extension.m */; };
+		E9B9AA412340B4F0004DBB37 /* JhConst.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B9AA402340B4F0004DBB37 /* JhConst.m */; };
+		E9B9AA4A2340B6C2004DBB37 /* AppDelegate+ThirdLib.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B9AA492340B6C2004DBB37 /* AppDelegate+ThirdLib.m */; };
+		ED1016E5239A3117003EFA95 /* KNZipArchive.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = ED9856432399F7260076C825 /* KNZipArchive.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ED98563B2399F2E90076C825 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED98563A2399F2E90076C825 /* WebKit.framework */; };
+		ED98563D2399F2F70076C825 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ED98563C2399F2F70076C825 /* libz.tbd */; };
+		ED98563F2399F3020076C825 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ED98563E2399F3020076C825 /* libicucore.tbd */; };
+		ED9856672399F7270076C825 /* KNZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED9856432399F7260076C825 /* KNZipArchive.framework */; };
+		ED98566E2399F7270076C825 /* Engine.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ED9856612399F7270076C825 /* Engine.bundle */; };
+		ED98566F2399F7270076C825 /* module.json in Resources */ = {isa = PBXBuildFile; fileRef = ED9856622399F7270076C825 /* module.json */; };
+		ED9856702399F7270076C825 /* mam.html in Resources */ = {isa = PBXBuildFile; fileRef = ED9856642399F7270076C825 /* mam.html */; };
+		ED9856712399F7270076C825 /* mam.js in Resources */ = {isa = PBXBuildFile; fileRef = ED9856652399F7270076C825 /* mam.js */; };
+		ED9856782399F8780076C825 /* libminizip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED9856732399F8770076C825 /* libminizip.a */; };
+		ED9856792399F8780076C825 /* libopencore-amrwb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED9856742399F8770076C825 /* libopencore-amrwb.a */; };
+		ED98567A2399F8780076C825 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED9856752399F8770076C825 /* libopencore-amrnb.a */; };
+		ED98567B2399F8780076C825 /* libAPICloud.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED9856762399F8770076C825 /* libAPICloud.a */; };
+		ED98567C2399F8780076C825 /* libAMR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED9856772399F8770076C825 /* libAMR.a */; };
+		ED98567E2399FA000076C825 /* widget in Resources */ = {isa = PBXBuildFile; fileRef = ED98567D2399FA000076C825 /* widget */; };
+		ED9856812399FAC70076C825 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9856802399FAC70076C825 /* MainVC.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E955298F2048E84A0088B24D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E955296D2048E8490088B24D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E95529742048E8490088B24D;
+			remoteInfo = JhAPICloud_iOS;
+		};
+		E955299A2048E84A0088B24D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E955296D2048E8490088B24D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E95529742048E8490088B24D;
+			remoteInfo = JhAPICloud_iOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		ED1016E4239A3106003EFA95 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				ED1016E5239A3117003EFA95 /* KNZipArchive.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1EC26992C4D4301B91877222 /* Pods-JhAPICloud_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JhAPICloud_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-JhAPICloud_iOS/Pods-JhAPICloud_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		CCE9C0024661CC9998C8DE3B /* Pods-JhAPICloud_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JhAPICloud_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JhAPICloud_iOS/Pods-JhAPICloud_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		E262AB640041931B7A5280A0 /* libPods-JhAPICloud_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JhAPICloud_iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E95529752048E8490088B24D /* JhAPICloud_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JhAPICloud_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E95529842048E84A0088B24D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E95529892048E84A0088B24D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E955298E2048E84A0088B24D /* JhAPICloud_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JhAPICloud_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E95529922048E84A0088B24D /* ____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____Tests.m"; sourceTree = "<group>"; };
+		E95529942048E84A0088B24D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E95529992048E84A0088B24D /* JhAPICloud_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JhAPICloud_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E955299D2048E84A0088B24D /* ____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____UITests.m"; sourceTree = "<group>"; };
+		E955299F2048E84A0088B24D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E95529BA2048E8B20088B24D /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		E9552A112048E9010088B24D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E9552A122048E9010088B24D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E9552A132048E9010088B24D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E9B9AA392340B4C3004DBB37 /* UIViewController+JhDealloc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JhDealloc.m"; sourceTree = "<group>"; };
+		E9B9AA3A2340B4C3004DBB37 /* UIViewController+JhDealloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JhDealloc.h"; sourceTree = "<group>"; };
+		E9B9AA3C2340B4CB004DBB37 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		E9B9AA3D2340B4CB004DBB37 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		E9B9AA3F2340B4F0004DBB37 /* JhConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JhConst.h; sourceTree = "<group>"; };
+		E9B9AA402340B4F0004DBB37 /* JhConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JhConst.m; sourceTree = "<group>"; };
+		E9B9AA482340B6C2004DBB37 /* AppDelegate+ThirdLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+ThirdLib.h"; sourceTree = "<group>"; };
+		E9B9AA492340B6C2004DBB37 /* AppDelegate+ThirdLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ThirdLib.m"; sourceTree = "<group>"; };
+		ED98563A2399F2E90076C825 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		ED98563C2399F2F70076C825 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		ED98563E2399F3020076C825 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		ED9856432399F7260076C825 /* KNZipArchive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KNZipArchive.framework; sourceTree = "<group>"; };
+		ED9856452399F7260076C825 /* APIConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIConfiguration.h; sourceTree = "<group>"; };
+		ED9856462399F7260076C825 /* APIEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIEvent.h; sourceTree = "<group>"; };
+		ED9856472399F7260076C825 /* APIModuleMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIModuleMethod.h; sourceTree = "<group>"; };
+		ED9856482399F7260076C825 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		ED9856492399F7260076C825 /* APIUpdateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIUpdateManager.h; sourceTree = "<group>"; };
+		ED98564A2399F7260076C825 /* UZWebViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZWebViewProtocol.h; sourceTree = "<group>"; };
+		ED98564B2399F7260076C825 /* APIWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIWebView.h; sourceTree = "<group>"; };
+		ED98564D2399F7260076C825 /* UIViewControllerExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerExtension.h; sourceTree = "<group>"; };
+		ED98564E2399F7260076C825 /* UZURLTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZURLTask.h; sourceTree = "<group>"; };
+		ED98564F2399F7260076C825 /* UZModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZModule.h; sourceTree = "<group>"; };
+		ED9856502399F7260076C825 /* UZAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZAppDelegate.h; sourceTree = "<group>"; };
+		ED9856512399F7260076C825 /* UZAppUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZAppUtils.h; sourceTree = "<group>"; };
+		ED9856522399F7260076C825 /* NSDictionaryUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionaryUtils.h; sourceTree = "<group>"; };
+		ED9856532399F7260076C825 /* APIScriptMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIScriptMessage.h; sourceTree = "<group>"; };
+		ED9856542399F7260076C825 /* APIWidgetContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIWidgetContainer.h; sourceTree = "<group>"; };
+		ED9856552399F7260076C825 /* APIWindowContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIWindowContainer.h; sourceTree = "<group>"; };
+		ED9856562399F7260076C825 /* APITabLayoutContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APITabLayoutContainer.h; sourceTree = "<group>"; };
+		ED9856572399F7260076C825 /* UZWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZWidget.h; sourceTree = "<group>"; };
+		ED9856612399F7270076C825 /* Engine.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Engine.bundle; sourceTree = "<group>"; };
+		ED9856622399F7270076C825 /* module.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = module.json; sourceTree = "<group>"; };
+		ED9856642399F7270076C825 /* mam.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = mam.html; sourceTree = "<group>"; };
+		ED9856652399F7270076C825 /* mam.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = mam.js; sourceTree = "<group>"; };
+		ED9856732399F8770076C825 /* libminizip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libminizip.a; sourceTree = "<group>"; };
+		ED9856742399F8770076C825 /* libopencore-amrwb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a"; sourceTree = "<group>"; };
+		ED9856752399F8770076C825 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
+		ED9856762399F8770076C825 /* libAPICloud.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAPICloud.a; sourceTree = "<group>"; };
+		ED9856772399F8770076C825 /* libAMR.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAMR.a; sourceTree = "<group>"; };
+		ED98567D2399FA000076C825 /* widget */ = {isa = PBXFileReference; lastKnownFileType = folder; path = widget; sourceTree = "<group>"; };
+		ED98567F2399FAC70076C825 /* MainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
+		ED9856802399FAC70076C825 /* MainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E95529722048E8490088B24D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED98563F2399F3020076C825 /* libicucore.tbd in Frameworks */,
+				ED98567A2399F8780076C825 /* libopencore-amrnb.a in Frameworks */,
+				ED9856672399F7270076C825 /* KNZipArchive.framework in Frameworks */,
+				ED9856782399F8780076C825 /* libminizip.a in Frameworks */,
+				ED98567C2399F8780076C825 /* libAMR.a in Frameworks */,
+				ED98563D2399F2F70076C825 /* libz.tbd in Frameworks */,
+				ED98563B2399F2E90076C825 /* WebKit.framework in Frameworks */,
+				ED9856792399F8780076C825 /* libopencore-amrwb.a in Frameworks */,
+				4B239CDA660EA5D050FFBBC9 /* libPods-JhAPICloud_iOS.a in Frameworks */,
+				ED98567B2399F8780076C825 /* libAPICloud.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E955298B2048E84A0088B24D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E95529962048E84A0088B24D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6DC422EB34F15FF2ED57E60E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CCE9C0024661CC9998C8DE3B /* Pods-JhAPICloud_iOS.debug.xcconfig */,
+				1EC26992C4D4301B91877222 /* Pods-JhAPICloud_iOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E955296C2048E8490088B24D = {
+			isa = PBXGroup;
+			children = (
+				E95529772048E8490088B24D /* JhAPICloud_iOS */,
+				E95529912048E84A0088B24D /* JhAPICloud_iOSTests */,
+				E955299C2048E84A0088B24D /* JhAPICloud_iOSUITests */,
+				E95529762048E8490088B24D /* Products */,
+				6DC422EB34F15FF2ED57E60E /* Pods */,
+				EA827A97234015D9DDB54D54 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E95529762048E8490088B24D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E95529752048E8490088B24D /* JhAPICloud_iOS.app */,
+				E955298E2048E84A0088B24D /* JhAPICloud_iOSTests.xctest */,
+				E95529992048E84A0088B24D /* JhAPICloud_iOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E95529772048E8490088B24D /* JhAPICloud_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				E95529AB2048E8B20088B24D /* Classes */,
+				E95529782048E84A0088B24D /* Supporting Files */,
+			);
+			path = JhAPICloud_iOS;
+			sourceTree = "<group>";
+		};
+		E95529782048E84A0088B24D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E95529842048E84A0088B24D /* Assets.xcassets */,
+				E95529892048E84A0088B24D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E95529912048E84A0088B24D /* JhAPICloud_iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				E95529922048E84A0088B24D /* ____Tests.m */,
+				E95529942048E84A0088B24D /* Info.plist */,
+			);
+			path = JhAPICloud_iOSTests;
+			sourceTree = "<group>";
+		};
+		E955299C2048E84A0088B24D /* JhAPICloud_iOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E955299D2048E84A0088B24D /* ____UITests.m */,
+				E955299F2048E84A0088B24D /* Info.plist */,
+			);
+			path = JhAPICloud_iOSUITests;
+			sourceTree = "<group>";
+		};
+		E95529AB2048E8B20088B24D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				ED9856402399F7260076C825 /* SuperWebViewSDK */,
+				E95529F22048E8B20088B24D /* 第三方 */,
+				E9B9AA032340ADB3004DBB37 /* JhCommon */,
+				E95529B02048E8B20088B24D /* ProjectMain */,
+				E95529B62048E8B20088B24D /* Other */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E95529B02048E8B20088B24D /* ProjectMain */ = {
+			isa = PBXGroup;
+			children = (
+				ED98567F2399FAC70076C825 /* MainVC.h */,
+				ED9856802399FAC70076C825 /* MainVC.m */,
+			);
+			path = ProjectMain;
+			sourceTree = "<group>";
+		};
+		E95529B52048E8B20088B24D /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		E95529B62048E8B20088B24D /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				E9B9AA3F2340B4F0004DBB37 /* JhConst.h */,
+				E9B9AA402340B4F0004DBB37 /* JhConst.m */,
+				E9552A112048E9010088B24D /* AppDelegate.h */,
+				E9552A122048E9010088B24D /* AppDelegate.m */,
+				E9B9AA482340B6C2004DBB37 /* AppDelegate+ThirdLib.h */,
+				E9B9AA492340B6C2004DBB37 /* AppDelegate+ThirdLib.m */,
+				E9552A132048E9010088B24D /* main.m */,
+				E95529BA2048E8B20088B24D /* PrefixHeader.pch */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		E95529F22048E8B20088B24D /* 第三方 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "第三方";
+			sourceTree = "<group>";
+		};
+		E9B9AA032340ADB3004DBB37 /* JhCommon */ = {
+			isa = PBXGroup;
+			children = (
+				E9B9AA2F2340AEBD004DBB37 /* JhTools */,
+				E95529B52048E8B20088B24D /* Lib */,
+				E9B9AA2E2340AE51004DBB37 /* Nav&Tab */,
+			);
+			path = JhCommon;
+			sourceTree = "<group>";
+		};
+		E9B9AA2E2340AE51004DBB37 /* Nav&Tab */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Nav&Tab";
+			sourceTree = "<group>";
+		};
+		E9B9AA2F2340AEBD004DBB37 /* JhTools */ = {
+			isa = PBXGroup;
+			children = (
+				E9B9AA332340AEFC004DBB37 /* Inheritance */,
+				E9B9AA322340AEE9004DBB37 /* Category */,
+				E9B9AA312340AEDF004DBB37 /* ToolClass */,
+				E9B9AA302340AECE004DBB37 /* JhLib */,
+			);
+			path = JhTools;
+			sourceTree = "<group>";
+		};
+		E9B9AA302340AECE004DBB37 /* JhLib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = JhLib;
+			sourceTree = "<group>";
+		};
+		E9B9AA312340AEDF004DBB37 /* ToolClass */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ToolClass;
+			sourceTree = "<group>";
+		};
+		E9B9AA322340AEE9004DBB37 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E9B9AA3D2340B4CB004DBB37 /* UIView+Extension.h */,
+				E9B9AA3C2340B4CB004DBB37 /* UIView+Extension.m */,
+				E9B9AA3A2340B4C3004DBB37 /* UIViewController+JhDealloc.h */,
+				E9B9AA392340B4C3004DBB37 /* UIViewController+JhDealloc.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		E9B9AA332340AEFC004DBB37 /* Inheritance */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Inheritance;
+			sourceTree = "<group>";
+		};
+		EA827A97234015D9DDB54D54 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED98563E2399F3020076C825 /* libicucore.tbd */,
+				ED98563C2399F2F70076C825 /* libz.tbd */,
+				ED98563A2399F2E90076C825 /* WebKit.framework */,
+				E262AB640041931B7A5280A0 /* libPods-JhAPICloud_iOS.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED9856402399F7260076C825 /* SuperWebViewSDK */ = {
+			isa = PBXGroup;
+			children = (
+				ED98567D2399FA000076C825 /* widget */,
+				ED9856412399F7260076C825 /* lib */,
+			);
+			path = SuperWebViewSDK;
+			sourceTree = "<group>";
+		};
+		ED9856412399F7260076C825 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				ED9856722399F8770076C825 /* Library */,
+				ED9856422399F7260076C825 /* Framework */,
+				ED9856442399F7260076C825 /* Source */,
+				ED98565F2399F7260076C825 /* Resource */,
+				ED9856662399F7270076C825 /* Localization */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		ED9856422399F7260076C825 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				ED9856432399F7260076C825 /* KNZipArchive.framework */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		ED9856442399F7260076C825 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				ED9856452399F7260076C825 /* APIConfiguration.h */,
+				ED9856462399F7260076C825 /* APIEvent.h */,
+				ED98564C2399F7260076C825 /* APIKit */,
+				ED9856482399F7260076C825 /* APIManager.h */,
+				ED9856472399F7260076C825 /* APIModuleMethod.h */,
+				ED9856532399F7260076C825 /* APIScriptMessage.h */,
+				ED9856562399F7260076C825 /* APITabLayoutContainer.h */,
+				ED9856492399F7260076C825 /* APIUpdateManager.h */,
+				ED98564B2399F7260076C825 /* APIWebView.h */,
+				ED9856542399F7260076C825 /* APIWidgetContainer.h */,
+				ED9856552399F7260076C825 /* APIWindowContainer.h */,
+				ED98564A2399F7260076C825 /* UZWebViewProtocol.h */,
+				ED9856572399F7260076C825 /* UZWidget.h */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		ED98564C2399F7260076C825 /* APIKit */ = {
+			isa = PBXGroup;
+			children = (
+				ED9856522399F7260076C825 /* NSDictionaryUtils.h */,
+				ED98564D2399F7260076C825 /* UIViewControllerExtension.h */,
+				ED9856502399F7260076C825 /* UZAppDelegate.h */,
+				ED9856512399F7260076C825 /* UZAppUtils.h */,
+				ED98564F2399F7260076C825 /* UZModule.h */,
+				ED98564E2399F7260076C825 /* UZURLTask.h */,
+			);
+			path = APIKit;
+			sourceTree = "<group>";
+		};
+		ED98565F2399F7260076C825 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				ED9856602399F7270076C825 /* uz */,
+				ED9856632399F7270076C825 /* res_mam */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		ED9856602399F7270076C825 /* uz */ = {
+			isa = PBXGroup;
+			children = (
+				ED9856612399F7270076C825 /* Engine.bundle */,
+				ED9856622399F7270076C825 /* module.json */,
+			);
+			path = uz;
+			sourceTree = "<group>";
+		};
+		ED9856632399F7270076C825 /* res_mam */ = {
+			isa = PBXGroup;
+			children = (
+				ED9856642399F7270076C825 /* mam.html */,
+				ED9856652399F7270076C825 /* mam.js */,
+			);
+			path = res_mam;
+			sourceTree = "<group>";
+		};
+		ED9856662399F7270076C825 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		ED9856722399F8770076C825 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				ED9856732399F8770076C825 /* libminizip.a */,
+				ED9856742399F8770076C825 /* libopencore-amrwb.a */,
+				ED9856752399F8770076C825 /* libopencore-amrnb.a */,
+				ED9856762399F8770076C825 /* libAPICloud.a */,
+				ED9856772399F8770076C825 /* libAMR.a */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E95529742048E8490088B24D /* JhAPICloud_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E95529A22048E84A0088B24D /* Build configuration list for PBXNativeTarget "JhAPICloud_iOS" */;
+			buildPhases = (
+				44742656A95B28418F4EED6D /* [CP] Check Pods Manifest.lock */,
+				E95529712048E8490088B24D /* Sources */,
+				E95529722048E8490088B24D /* Frameworks */,
+				E95529732048E8490088B24D /* Resources */,
+				8BF225966ED31BF7579DD3F1 /* [CP] Copy Pods Resources */,
+				ED1016E4239A3106003EFA95 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JhAPICloud_iOS;
+			productName = JhAPICloud_iOS;
+			productReference = E95529752048E8490088B24D /* JhAPICloud_iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E955298D2048E84A0088B24D /* JhAPICloud_iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E95529A52048E84A0088B24D /* Build configuration list for PBXNativeTarget "JhAPICloud_iOSTests" */;
+			buildPhases = (
+				E955298A2048E84A0088B24D /* Sources */,
+				E955298B2048E84A0088B24D /* Frameworks */,
+				E955298C2048E84A0088B24D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E95529902048E84A0088B24D /* PBXTargetDependency */,
+			);
+			name = JhAPICloud_iOSTests;
+			productName = JhAPICloud_iOSTests;
+			productReference = E955298E2048E84A0088B24D /* JhAPICloud_iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E95529982048E84A0088B24D /* JhAPICloud_iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E95529A82048E84A0088B24D /* Build configuration list for PBXNativeTarget "JhAPICloud_iOSUITests" */;
+			buildPhases = (
+				E95529952048E84A0088B24D /* Sources */,
+				E95529962048E84A0088B24D /* Frameworks */,
+				E95529972048E84A0088B24D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E955299B2048E84A0088B24D /* PBXTargetDependency */,
+			);
+			name = JhAPICloud_iOSUITests;
+			productName = JhAPICloud_iOSUITests;
+			productReference = E95529992048E84A0088B24D /* JhAPICloud_iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E955296D2048E8490088B24D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Jh;
+				TargetAttributes = {
+					E95529742048E8490088B24D = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = A28X2T458G;
+						ProvisioningStyle = Automatic;
+					};
+					E955298D2048E84A0088B24D = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E95529742048E8490088B24D;
+					};
+					E95529982048E84A0088B24D = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E95529742048E8490088B24D;
+					};
+				};
+			};
+			buildConfigurationList = E95529702048E8490088B24D /* Build configuration list for PBXProject "JhAPICloud_iOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+				Base,
+			);
+			mainGroup = E955296C2048E8490088B24D;
+			productRefGroup = E95529762048E8490088B24D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E95529742048E8490088B24D /* JhAPICloud_iOS */,
+				E955298D2048E84A0088B24D /* JhAPICloud_iOSTests */,
+				E95529982048E84A0088B24D /* JhAPICloud_iOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E95529732048E8490088B24D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED98567E2399FA000076C825 /* widget in Resources */,
+				ED9856702399F7270076C825 /* mam.html in Resources */,
+				E95529852048E84A0088B24D /* Assets.xcassets in Resources */,
+				ED98566E2399F7270076C825 /* Engine.bundle in Resources */,
+				ED98566F2399F7270076C825 /* module.json in Resources */,
+				ED9856712399F7270076C825 /* mam.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E955298C2048E84A0088B24D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E95529972048E84A0088B24D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		44742656A95B28418F4EED6D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JhAPICloud_iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8BF225966ED31BF7579DD3F1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JhAPICloud_iOS/Pods-JhAPICloud_iOS-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JhAPICloud_iOS/Pods-JhAPICloud_iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E95529712048E8490088B24D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9B9AA4A2340B6C2004DBB37 /* AppDelegate+ThirdLib.m in Sources */,
+				E9B9AA3E2340B4CC004DBB37 /* UIView+Extension.m in Sources */,
+				E9B9AA412340B4F0004DBB37 /* JhConst.m in Sources */,
+				ED9856812399FAC70076C825 /* MainVC.m in Sources */,
+				E9552A152048E9010088B24D /* main.m in Sources */,
+				E9552A142048E9010088B24D /* AppDelegate.m in Sources */,
+				E9B9AA3B2340B4C3004DBB37 /* UIViewController+JhDealloc.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E955298A2048E84A0088B24D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E95529932048E84A0088B24D /* ____Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E95529952048E84A0088B24D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E955299E2048E84A0088B24D /* ____UITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E95529902048E84A0088B24D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E95529742048E8490088B24D /* JhAPICloud_iOS */;
+			targetProxy = E955298F2048E84A0088B24D /* PBXContainerItemProxy */;
+		};
+		E955299B2048E84A0088B24D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E95529742048E8490088B24D /* JhAPICloud_iOS */;
+			targetProxy = E955299A2048E84A0088B24D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E95529A02048E84A0088B24D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E95529A12048E84A0088B24D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E95529A32048E84A0088B24D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCE9C0024661CC9998C8DE3B /* Pods-JhAPICloud_iOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A28X2T458G;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/JhAPICloud_iOS/Classes/SuperWebViewSDK/lib/Framework",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/JhAPICloud_iOS/Classes/Other/PrefixHeader.pch";
+				INFOPLIST_FILE = JhAPICloud_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/JhAPICloud_iOS/Classes/SuperWebViewSDK/lib/Library",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"DZNEmptyDataSet\"",
+					"-l\"IQKeyboardManager\"",
+					"-l\"MJExtension\"",
+					"-l\"MJRefresh\"",
+					"-l\"Masonry\"",
+					"-l\"SDWebImage\"",
+					"-l\"SVProgressHUD\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-Objc",
+					"-all_load",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jh.JhAPICloud_iOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E95529A42048E84A0088B24D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EC26992C4D4301B91877222 /* Pods-JhAPICloud_iOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A28X2T458G;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/JhAPICloud_iOS/Classes/SuperWebViewSDK/lib/Framework",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/JhAPICloud_iOS/Classes/Other/PrefixHeader.pch";
+				INFOPLIST_FILE = JhAPICloud_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/JhAPICloud_iOS/Classes/SuperWebViewSDK/lib/Library",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"DZNEmptyDataSet\"",
+					"-l\"IQKeyboardManager\"",
+					"-l\"MJExtension\"",
+					"-l\"MJRefresh\"",
+					"-l\"Masonry\"",
+					"-l\"SDWebImage\"",
+					"-l\"SVProgressHUD\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-Objc",
+					"-all_load",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jh.JhAPICloud_iOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E95529A62048E84A0088B24D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = JhAPICloud_iOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jh.----Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JhAPICloud_iOS.app/JhAPICloud_iOS";
+			};
+			name = Debug;
+		};
+		E95529A72048E84A0088B24D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = JhAPICloud_iOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jh.----Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JhAPICloud_iOS.app/JhAPICloud_iOS";
+			};
+			name = Release;
+		};
+		E95529A92048E84A0088B24D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = JhAPICloud_iOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jh.----UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = JhAPICloud_iOS;
+			};
+			name = Debug;
+		};
+		E95529AA2048E84A0088B24D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = JhAPICloud_iOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jh.----UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = JhAPICloud_iOS;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E95529702048E8490088B24D /* Build configuration list for PBXProject "JhAPICloud_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E95529A02048E84A0088B24D /* Debug */,
+				E95529A12048E84A0088B24D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E95529A22048E84A0088B24D /* Build configuration list for PBXNativeTarget "JhAPICloud_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E95529A32048E84A0088B24D /* Debug */,
+				E95529A42048E84A0088B24D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E95529A52048E84A0088B24D /* Build configuration list for PBXNativeTarget "JhAPICloud_iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E95529A62048E84A0088B24D /* Debug */,
+				E95529A72048E84A0088B24D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E95529A82048E84A0088B24D /* Build configuration list for PBXNativeTarget "JhAPICloud_iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E95529A92048E84A0088B24D /* Debug */,
+				E95529AA2048E84A0088B24D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E955296D2048E8490088B24D /* Project object */;
+}

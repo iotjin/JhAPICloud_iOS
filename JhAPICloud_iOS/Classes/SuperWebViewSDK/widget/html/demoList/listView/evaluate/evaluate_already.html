@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>已评价</title>
+    <link rel="stylesheet" type="text/css" href="../../../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../css/aui.css" />
+    <style type="text/css">
+
+        .aui-bar{
+            background: #45C01A;
+        }
+        .aui-list{
+            background: #E6E6E6;
+        }
+        .aui-icon-right{
+            margin-right: 15px;
+        }
+
+        .score_bg{
+            background: white;
+            padding-top: 15px;
+        }
+        .score_text1{
+            margin-left: 15px;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+        .flex-container {
+            margin-top: 5px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .flex-item {
+            height: 30px;
+            line-height: 30px;
+            font-size: 18px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .line1{
+            background: white;
+            padding-top: 15px;
+            border-bottom:1px solid gray;
+        }
+
+        .flex-container2 {
+            display: flex;
+            justify-content: space-around;
+        }
+        .flex-item2 {
+            height: 30px;
+            line-height: 30px;
+            font-size: 13px;
+            text-align: center;
+            vertical-align: middle;
+            /*border:1px solid gray;*/
+        }
+        .okImg{
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            background-image:url("../../../../image/inspectEvaluate_ok.png");
+            background-repeat: no-repeat;
+            background-size:15px 15px;
+            background-position: left;
+            /*border:1px solid gray;*/
+        }
+        .evaluateContent{
+            background: white;
+            padding: 15px;
+            font-size: 13px;
+        }
+
+
+    </style>
+
+</head>
+
+<body >
+
+
+<header class="aui-bar aui-bar-nav" id="header">
+    <a class="aui-pull-left aui-btn" tapmode onclick="closeWin()">
+        <span class="aui-iconfont aui-icon-left"></span>
+    </a>
+    <div class="aui-title">评价</div>
+</header>
+
+<ul class="aui-list aui-media-list">
+    <li class="aui-list-item aui-list-item-middle">
+        <div class="aui-media-list-item-inner">
+            <div class="aui-list-item-inner ">
+                <div class="aui-list-item-text">
+                    <div class="aui-list-item-title aui-font-size-14" id="siteName">名称名称名称名称</div>
+                </div>
+                <div class="aui-list-item-text" id="workOrderID">
+                    JX-1234588977
+                </div>
+            </div>
+            <i class="aui-iconfont aui-icon-right"></i>
+        </div>
+    </li>
+</ul>
+
+
+<div class="score_bg">
+    <div class="score_text1">本次满意度：</div>
+    <div class="flex-container">
+        <div class="flex-item" >8分</div>
+        <div class="flex-item">满意</div>
+    </div>
+</div>
+
+<div class="line1"></div>
+
+<div class="score_bg">
+    <div class="score_text1">本次满意内容：</div>
+    <div class="flex-container2">
+        <div class="flex-item2" >人员技能专业</div>
+        <div class="okImg"></div>
+    </div>
+    <div class="flex-container2">
+        <div class="flex-item2" >人员技能专业</div>
+        <div class="okImg"></div>
+    </div>
+    <div class="flex-container2">
+        <div class="flex-item2" >人员技能专业</div>
+        <div class="okImg"></div>
+    </div>
+</div>
+
+<div class="line1"></div>
+
+
+<div class="evaluateContent">这是评价内容这是评价内容这是评价内容这是评价内容这是评价内容</div>
+
+
+</body>
+
+<script type="text/javascript" src="../../../../script/api.js"></script>
+<script>
+    apiready = function(){
+        $api.fixStatusBar($api.byId('header'));
+
+
+    }
+    function closeWin(){
+
+        api.closeWin({
+        });
+    }
+    function jump_pengyouquan() {
+
+
+    }
+
+
+</script>
+
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>单选多选实现</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+    <style type="text/css">
+
+        .aui-bar{
+            background: #45C01A;
+        }
+
+
+        .out {
+            display:flex;
+            flex-wrap:wrap;
+            align-content:flex-start;
+        }
+        .in {
+            width:45%;
+            height:50px;
+            line-height: 50px;
+            box-sizing:border-box;
+            border:1px solid gray;
+            font-size: 13px;
+            text-align: center;
+            vertical-align: middle;
+            margin-top: 15px;
+            margin-left: 15px;
+        }
+
+        .score_bg{
+            background: white;
+            padding-top: 15px;
+        }
+        .score_text1{
+            margin-left: 15px;
+            font-size: 15px;
+        }
+        .score_text2{
+            margin-top: 5px;
+            margin-left: 20px;
+            font-size: 15px;
+        }
+        .flex-container {
+            margin-top: 5px;
+            padding-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .flex-item {
+            border: 1px solid gray;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 13px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .line1{
+          padding-top: 20px;
+          border-bottom:1px solid gray;
+          background: white;
+        }
+
+        .score_text3{
+            margin-left: 15px;
+            font-size: 15px;
+            padding-bottom: 20px;
+        }
+        .flex-container2 {
+           display:flex;
+           flex-wrap:wrap;
+           align-content:flex-start;
+           background: white;
+       }
+       .flex-item2 {
+           width:45%;
+           height:50px;
+           line-height: 50px;
+           box-sizing:border-box;
+           border:1px solid gray;
+           font-size: 13px;
+           text-align: center;
+           vertical-align: middle;
+           margin-top: 15px;
+           margin-left: 15px;
+       }
+       .line2{
+           margin-top: 20px;
+           background: white;
+           border-bottom:1px solid gray;
+       }
+
+        .danxuanSel-bgColor {
+          /*border: 1px solid red;*/
+          border: 2px solid #055a54;
+
+        }
+
+        .btn_bg{
+            background: white;
+            padding: 15px;
+            margin-bottom: 30px
+        }
+        .okBtn{
+            background: white;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 5px;
+            background-color: #45C01A;
+            font-size: 17px;
+            text-align:center;
+            color: white;
+        }
+
+
+
+
+    </style>
+
+</head>
+
+<body >
+
+<header class="aui-bar aui-bar-nav" id="header">
+    <a class="aui-pull-left aui-btn" tapmode onclick="closeWin()">
+        <span class="aui-iconfont aui-icon-left"></span>
+    </a>
+    <div class="aui-title">单选多选实现</div>
+</header>
+
+
+<div>静态按钮组</div>
+
+<div class="out">
+    <div class="in">一一一一一</div>
+    <div class="in">二二二二二</div>
+    <div class="in">三三三三三</div>
+    <div class="in">四四四四</div>
+    <div class="in">五五</div>
+    <div class="in">六六六六六六六</div>
+</div>
+
+
+<div class="score_bg">
+    <div class="score_text1">请问您对本次服务是否满意？</div>
+    <div class="score_text2">（1-10评分，1分不满意，10分特别满意）</div>
+    <div class="flex-container">
+        <div class="flex-item" >1分 </div>
+        <div class="flex-item">2分 </div>
+        <div class="flex-item">3分 </div>
+        <div class="flex-item">4分 </div>
+        <div class="flex-item">5分 </div>
+    </div>
+    <div class="flex-container">
+        <div class="flex-item">6分 </div>
+        <div class="flex-item">7分 </div>
+        <div class="flex-item">8分 </div>
+        <div class="flex-item">9分 </div>
+        <div class="flex-item">10分 </div>
+    </div>
+</div>
+
+<div class="line1"></div>
+
+<div class="score_bg">
+    <div class="score_text3">本次服务哪些地方让您觉得满意？（最多选3项）</div>
+</div>
+
+<section class="flex-container2" id="CellList"></section>
+
+<div class="line2"></div>
+
+<div class="aui-content aui-margin-b-15" onclick="switchBtnClick()">
+    <ul class="aui-list aui-form-list">
+
+<li class="aui-list-item">
+    <div class="aui-list-item-inner">
+        <div class="aui-list-item-label">
+            Switch
+        </div>
+        <div class="aui-list-item-input">
+            <input type="checkbox" class="aui-switch" id="SwitchBtn" checked>
+        </div>
+    </div>
+</li>
+</ul>
+    </div>
+
+
+
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-form-list">
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label">
+                        Switch
+                    </div>
+                    <div class="aui-list-item-input">
+                        <input type="checkbox" class="aui-switch" checked>
+                    </div>
+                </div>
+            </li>
+          </ul>
+      </div>
+
+
+      <div class="btn_bg">
+          <div class="okBtn" id="okBtn" tapmode="" onclick="clickBtn()">提 交</div>
+      </div>
+
+
+</body>
+
+<script type="text/html" id="template">
+    {{each}}
+    <div class="flex-item2" >{{$value.label}}</div>
+    {{/each}}
+</script>
+
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript" src="../../../script/template-web.js"></script>
+<script>
+    apiready = function(){
+
+        $api.fixStatusBar($api.byId('header'));
+
+        selctEvaluateType();
+
+
+
+
+
+
+    }
+
+    function selctEvaluateType() {
+
+            var data = [{
+                          "id": "123123",
+                          "label": "工作人员技能专业",
+                          "value": "val_2"
+                        }, {
+                          "id": "123123",
+                          "label": "工作人员态度好0",
+                          "value": "val_1"
+                        }, {
+                          "id": "123123123",
+                          "label": "工作人员态度好1",
+                          "value": "val_1"
+                        }, {
+                          "id": "123123123",
+                          "label": "工作人员态度好2",
+                          "value": "val_1"
+                        }, {
+                          "id": "123123123123",
+                          "label": "工作人员态度好3",
+                          "value": "val_1"
+                        }, {
+                          "id": "123123123",
+                          "label": "工作人员态度好4",
+                          "value": "val_1"
+                        }, {
+                          "id": "123123123",
+                          "label": "工作人员态度好5",
+                          "value": "val_1"
+                        }, {
+                          "id": "123123123",
+                          "label": "其他",
+                          "value": "val_1"
+                        }
+                      ];
+
+            $api.html($api.byId('CellList'), template('template', data));
+            api.parseTapmode();
+
+            danxuan();
+            duoxuan();
+
+
+    }
+
+    //单选评价
+    function danxuan() {
+
+      var items = $api.domAll(".flex-item");
+      for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        $api.addEvt(items[i], 'click', function(){
+            console.log($api.html(this));
+            for (var j = 0; j< items.length; j++) {
+              if (  $api.hasCls(items[j], 'danxuanSel-bgColor') ){
+                      $api.removeCls(items[j],'danxuanSel-bgColor');
+                }
+            }
+            $api.addCls(this,'danxuanSel-bgColor');
+        });
+      }
+
+    }
+
+    //多选评价
+    function duoxuan() {
+
+      var duoxuanSelected = 1;
+      var items = $api.domAll(".flex-item2");
+      for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        $api.addEvt(items[i], 'click', function(){
+          console.log($api.html(this));
+          if (duoxuanSelected<=3){
+            var isHava = $api.hasCls(this, 'danxuanSel-bgColor');
+            console.log(isHava);
+                 if (!isHava){
+                     $api.addCls(this,'danxuanSel-bgColor');
+                     duoxuanSelected++;
+                 }
+          }else {
+
+                    api.confirm({
+
+                        title:"提示",
+                        msg: '最多选择3项，是否清空重新选择',
+                        buttons: ['确定', '取消']
+                    }, function(ret, err) {
+                        // var index = ret.buttonIndex;
+                        // console.log(index);
+                        if (ret.buttonIndex ==1 ) {
+
+                          var items = $api.domAll(".flex-item2");
+                          for (var i = 0; i< items.length; i++) {
+                            if (  $api.hasCls(items[i], 'danxuanSel-bgColor') ){
+                                    $api.removeCls(items[i],'danxuanSel-bgColor');
+                              }
+                          }
+                          duoxuanSelected = 1;
+
+                        }
+
+                    });
+
+          }
+
+        });
+      }
+
+    }
+
+
+    function closeWin(){
+        api.closeWin({
+        });
+    }
+
+    function clickBtn() {
+
+      api.showProgress({
+          title: '努力加载中...',
+          text: '',
+      });
+
+      setTimeout(function () {
+          api.hideProgress();
+      }, 3000);
+
+
+    }
+
+    function switchBtnClick() {
+
+
+      if ($api.byId('SwitchBtn').checked) {
+         $api.byId('SwitchBtn').checked = false;
+        alert(关);
+      }else {
+         $api.byId('SwitchBtn').checked = true;
+                 alert(开);
+      }
+
+
+    }
+
+        function clickBtn() {
+          console.log($api.byId('SwitchBtn').checked);
+        }
+
+
+
+</script>
+
+</html>

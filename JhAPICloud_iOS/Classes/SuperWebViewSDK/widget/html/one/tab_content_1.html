@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>窗口系统</title>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css" />
+    <style type="text/css">
+
+    .button{
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    </style>
+
+    </head>
+
+    <body >
+
+
+
+      <!-- <div class="info-area">
+        <h2>page1<h2>
+      </div> -->
+
+
+      <!-- <div class="aui-btn" tapmode="" onclick="ClickBtn()">默认按钮</div> -->
+
+      <button type="button" class="button" tapmode="" onclick="ClickBtn()">跳转</button>
+
+
+    </body>
+
+    <script type="text/javascript" src="../../script/api.js"></script>
+
+
+    <script>
+    	apiready = function(){
+
+
+    	}
+
+      function ClickBtn() {
+
+      api.openWin({
+          name: 'demoList',
+          url: '../demoList/demoList.html',
+          pageParam: {
+              name: 'test'
+          }
+      });
+
+
+        // var param = {
+        //   name: 'demoList_frame',
+        //   url: '../demoList/demoList_frame.html',
+        //   // url: 'widget://html/help.html',
+        //   title: 'title',
+        //     navigationBar: {
+        //       background: '#45C01A',
+        //       color: '#fff',
+        //               // rightButtons: [{
+        //               //     iconPath: "widget://image/more.png"
+        //               // }]
+        //     }
+        // }
+        // api.openTabLayout(param);
+
+
+      }
+
+
+    </script>
+
+</html>

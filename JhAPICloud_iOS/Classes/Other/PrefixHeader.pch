@@ -1,0 +1,206 @@
+//
+//  PrefixHeader.pch
+//  通用轮播图
+//
+//  Created by 西半球 on 2018/2/28.
+//  Copyright © 2018年 Jh. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+#ifdef __OBJC__
+
+
+
+#import "UIImageView+WebCache.h"
+#import <SDWebImage/UIButton+WebCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <MJRefresh.h>
+#import <Masonry.h>
+#import <IQKeyboardManager.h>
+#import <SVProgressHUD.h>
+#import <AFNetworking.h>
+#import <MJExtension.h>
+
+
+
+
+#import "AppDelegate.h"
+
+#import "JhConst.h"
+#import "UIView+Extension.h"
+
+
+
+/** X是44,其他是20 */
+#define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+#define kContentNavBarHeight 44.0
+#define kTabBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?83:49)
+#define kNavHeight (kStatusBarHeight + kContentNavBarHeight)
+
+
+
+#define kTopSafeHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?44:0)
+#define kBottomSafeHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?34:0)
+
+
+#define kTableViewY     kNavHeight
+#define kTableViewHeight    Kheight-kTableViewY-kBottomSafeHeight
+#define kTableViewFrame      CGRectMake(0, kTableViewY, Kwidth, kTableViewHeight)
+
+#define kFrameContainTabbar      CGRectMake(0, kTableViewY, Kwidth, Kheight- kTableViewY - kTabBarHeight)
+
+
+#define JhRGBHex(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+#define JhRGBHexAlpha(rgbValue,a) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:(a)]
+
+#define JhColor(r, g, b)     [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define JhColorA(R, G, B, A) [UIColor colorWithRed:(R)/255.0 green:(G)/255.0 blue:(B)/255.0 alpha:A]
+#define JhRandomColor JhColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+#define JhGrayColor(v) JhColor((v), (v), (v))
+
+#define JhWriteToPlist(data, filename) [data writeToFile:[NSString stringWithFormat:@"/Users/jh/Desktop/%@.plist", filename] atomically:YES];
+
+
+/** 字符串是否为空 */
+#define JhIsEmptyString(str) ([str isKindOfClass:[NSNull class]] || str == nil || [str length] < 1 ? YES : NO )
+/** 数组是否为空 */
+#define JhIsEmptyArray(array) (array == nil || [array isKindOfClass:[NSNull class]] || array.count == 0)
+/** 字典是否为空 */
+#define JhIsEmptyDict(dic) (dic == nil || [dic isKindOfClass:[NSNull class]] || dic.allKeys == 0)
+
+/** 是否是空对象 */
+#define JhIsNullObject(_object) (_object == nil \
+|| [_object isKindOfClass:[NSNull class]] \
+|| ([_object respondsToSelector:@selector(length)] && [(NSData *)_object length] == 0) \
+|| ([_object respondsToSelector:@selector(count)] && [(NSArray *)_object count] == 0))
+
+
+
+///快速返回视图中心
+#define JhViewCenter(view) (CGPointMake(view.bounds.size.width / 2,view.bounds.size.height / 2))
+
+/** 主题色 */
+#define BaseThemeColor JhColor(46, 150, 213)
+/** 基础黑 */
+#define BaseBlackTextColor JhColor(51, 51, 51)
+/*** 浅灰色 */
+#define BaseLightGreyTextColor JhColor(119, 119, 119)
+/** 背景色 */
+#define BaseBgWhiteColor JhColor(248, 248, 248)
+#define BaselineColor JhColor(230, 230, 230)
+
+
+#define FONT @"PingFangSC-Regular"
+#define JhFontsize(x) [UIFont fontWithName:FONT size:x]
+#define JhBoldFont(FONTSIZE)      [UIFont boldSystemFontOfSize:FONTSIZE]
+#define JhSystemFontsize(FONTSIZE)    [UIFont systemFontOfSize:FONTSIZE]
+
+
+/** 左侧 title 字体大小 -- 15 */
+#define LeftTitleFont JhFontsize(15)
+/** 右侧 title 字体大小 -- 13 */
+#define RightTitleFont JhFontsize(13)
+
+
+#define JhLogFunc NSLog(@"%s", __func__);
+
+/** 弱引用 */
+#define WeakSelf      __weak typeof(self) weakSelf = self;
+
+// 获得弱引用对象
+#define WeakObject(object) __weak __typeof__(object) weakObject = object;
+#define StrongObject(object) __strong __typeof__(object) strongObject = object;
+
+#define Kwidth  [UIScreen mainScreen].bounds.size.width
+#define Kheight  [UIScreen mainScreen].bounds.size.height
+
+#define  kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define  kScreenWidth [UIScreen mainScreen].bounds.size.width
+
+
+//获取temp
+#define kPathTemp NSTemporaryDirectory()
+//获取沙盒 Document
+#define kPathDocument [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
+//获取沙盒 Cache
+#define kPathCache [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
+
+#define JhStringWithFormat(firstStr,...) [NSString Jh_stringWithFormatSubStrings:firstStr,__VA_ARGS__,nil]
+
+/** 拼接字符串 */
+#define kNSStringFormat(format,...) [NSString stringWithFormat:format,##__VA_ARGS__]
+
+/** 加载图片 imageNamed 加载方式 */
+#define JhImageNamed(imageName)     [UIImage imageNamed:imageName]
+
+/* 加载图片  mainBundle  */
+#define JhImageFromBundle(fileName) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileName ofType:nil]]
+
+
+
+#define iphone4 (kScreenHeight == 480)
+#define iphone5 (kScreenHeight == 568)
+#define iphone6 (kScreenHeight == 667)
+#define iphone6p (kScreenHeight == 763)
+
+/** X和XS的宽高一样 */
+#define iphoneX (kScreenHeight == 812)
+/** X和XS的宽高一样 */
+#define iphoneXS (kScreenHeight == 812)
+/** XSMAX和XR的宽高一样 */
+#define iphoneXSMAX (kScreenHeight == 896)
+/** XSMAX和XR的宽高一样 */
+#define iphoneXR (kScreenHeight == 896)
+
+/**  iphoneX以上所有的机型  */
+#define iphoneXAll ([UIScreen mainScreen].bounds.size.height == 812 || [UIScreen mainScreen].bounds.size.height == 896)
+
+
+/** 系统版本大于 */
+#define iOS(version) ([UIDevice currentDevice].systemVersion.doubleValue >= (version))
+
+
+
+#ifdef DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...)
+#endif
+
+
+#ifdef DEBUG
+/** 全部打印 */
+#define JhAllLog(FORMAT,...) fprintf(stderr,"********** JhAllLog-satrt ***********\n{\n文件名称:%s;\n方法名称:%s;\n行数:%d;\n信息:%s\n}\n********** JhAllLog-end ***********\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],[[NSString stringWithUTF8String:__func__] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+#define JhAllLog(...);
+#endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#endif
+
+
+
+
+
+
+
+
+
+#endif /* PrefixHeader_pch */
