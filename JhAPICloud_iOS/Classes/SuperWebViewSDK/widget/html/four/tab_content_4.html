@@ -60,6 +60,29 @@
     <script>
     	apiready = function(){
 
+
+        api.setNavBarAttr({
+            rightButtons: [{
+                text: '设置',
+                color: 'white',
+                // iconPath:'../../icon/setting.png'
+            }]
+        });
+
+        api.addEventListener({
+            name: 'navitembtn'
+        }, function(ret, err) {
+            if (ret.type == 'right') {
+
+              api.openWin({
+                  name: 'set',
+                  url: 'set.html',
+              });
+
+            }
+        });
+
+
     	}
 
       function  clickExitLoginBtn(){
