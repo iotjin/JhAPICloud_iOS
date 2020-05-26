@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>侧滑</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+    <style type="text/css">
+        body {
+            background: #001041;
+        }
+
+        html {
+            background: #001041;
+        }
+
+        .aui-bar {
+            background: #001041;
+        }
+
+        .title {
+            color: white;
+            font-size: 20px;
+        }
+
+        .cell_BgColor {
+            background: #001041;
+        }
+
+        .bgCell {
+            padding-left: 15px;
+            height: 60px;
+            line-height: 60px;
+            vertical-align: middle;
+             cursor: pointer;
+            /*border: 1px solid white;*/
+        }
+
+        .line {
+            border-bottom: 1px solid white;
+        }
+
+        .name {
+            color: white;
+            font-size: 18px;
+        }
+
+        .clickSelColor {
+            color: red;
+            background: yellow;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <header class="aui-bar aui-bar-nav" id="header">
+        <a class="aui-pull-left aui-btn">
+        </a>
+    </header>
+
+
+    <h2>标题</h2>
+
+    <div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10">
+        <div class="aui-info-item">
+            <img src="../../../icon/about_app.png" style="width:1.5rem" class="aui-img-round" /><span class="aui-margin-l-5 title">这是标题</span>
+        </div>
+    </div>
+
+    <ul class="aui-list aui-list-in  cell_BgColor">
+        <section id="CellList">
+        </section>
+    </ul>
+
+
+</body>
+
+
+<script type="text/html" id="template">
+    {{each }}
+    <div class="bgCell" tapmode="" onclick="clickItem('{{$value.id}}')">
+        <div class="name"  id={{$value.id}}>{{$value.name}}</div>
+        <div class="line"></div>
+    </div>
+    {{/each}}
+</script>
+
+
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript" src="../../../script/template-web.js"></script>
+<script>
+    apiready = function() {
+
+        $api.fixStatusBar($api.byId('header'));
+
+
+        var ALLData = [{
+            "id": "1",
+            "name": "信息1",
+        }, {
+            "id": "2",
+            "name": "信息2",
+        }, {
+            "id": "3",
+            "name": "信息3",
+        }, {
+            "id": "4",
+            "name": "信息4",
+        }];
+        let html = template('template', ALLData);
+        $api.html($api.byId('CellList'), html);
+        api.parseTapmode();
+
+        var items = $api.domAll(".name");
+        if ($api.hasCls(items[0], 'clickSelColor') == false) {
+            $api.addCls(items[0], 'clickSelColor');
+        }
+
+
+    }
+
+    function clickItem(id) {
+
+      console.log("id---"+id);
+
+      var items = $api.domAll(".name");
+       for (var i = 0; i < items.length; i++) {
+         if ( $api.hasCls(items[i], 'clickSelColor') ){
+              $api.removeCls(items[i],'clickSelColor');
+          }
+       }
+
+      var item= $api.byId(id);
+      $api.addCls(item,'clickSelColor');
+
+      api.closeDrawerPane();
+
+    }
+
+
+
+
+
+</script>
+
+</html>

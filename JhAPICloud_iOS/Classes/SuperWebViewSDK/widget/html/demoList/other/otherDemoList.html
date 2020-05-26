@@ -80,7 +80,7 @@
       }
 
       function initData() {
-          var ALLData = ["星星样式评分"];
+          var ALLData = ["星星样式评分","侧滑"];
           // console.log("data---"+ JSON.stringify(ALLData));
 
           // dot 模板
@@ -96,14 +96,26 @@
         console.log(str);
 
               if (str == "星星样式评分") {
-
                       api.openWin({
                         name: 'starScore',
                         url: './starScore.html',
                       });
 
               }
+              if (str == "侧滑") {
+                      api.openDrawerLayout({
+                          name: 'cehua',
+                          url: './cehua.html',
+                          animation: {
+                              type: 'push'
+                          },
+                          rightPane: {
+                              name: 'cehua_right',
+                              url: './cehua_right.html',
+                          }
+                      });
 
+              }
 
 
 
