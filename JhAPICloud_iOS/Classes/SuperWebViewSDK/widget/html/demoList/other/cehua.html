@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
     <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
-    <title>侧滑</title>
+    <title>侧滑承载界面</title>
     <link rel="stylesheet" type="text/css" href="../../../css/api.css" />
     <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
     <style type="text/css">
@@ -12,14 +12,11 @@
     .aui-bar{
       background: #45C01A;
     }
-
     </style>
 
     </head>
 
     <body >
-
-
       <header class="aui-bar aui-bar-nav" id="header">
           <a class="aui-pull-left aui-btn" tapmode onclick="closeWin()">
               <span class="aui-iconfont aui-icon-left"></span>
@@ -30,9 +27,6 @@
           </a>
       </header>
 
-
-
-
     </body>
 
     <script type="text/javascript" src="../../../script/api.js"></script>
@@ -40,12 +34,7 @@
     	apiready = function(){
             $api.fixStatusBar($api.byId('header'));
 
-
     	}
-
-
-
-
 
       function closeWin(){
           api.closeWin({
@@ -54,19 +43,10 @@
 
       function clickNavRightItem(){
         console.log("点击侧滑按钮");
-
         api.openDrawerPane({
             type: 'right'
         });
-
-        // api.openDrawerPane({
-        //       type: 'right'
-        // });
-
       }
-
-
-
 
     </script>
 

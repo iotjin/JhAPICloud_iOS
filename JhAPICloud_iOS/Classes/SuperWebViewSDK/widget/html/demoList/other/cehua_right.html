@@ -58,12 +58,10 @@
 
 <body>
 
-
     <header class="aui-bar aui-bar-nav" id="header">
         <a class="aui-pull-left aui-btn">
         </a>
     </header>
-
 
     <h2>标题</h2>
 
@@ -78,9 +76,7 @@
         </section>
     </ul>
 
-
 </body>
-
 
 <script type="text/html" id="template">
     {{each }}
@@ -98,7 +94,6 @@
     apiready = function() {
 
         $api.fixStatusBar($api.byId('header'));
-
 
         var ALLData = [{
             "id": "1",
@@ -122,13 +117,10 @@
             $api.addCls(items[0], 'clickSelColor');
         }
 
-
     }
 
     function clickItem(id) {
-
       console.log("id---"+id);
-
       var items = $api.domAll(".name");
        for (var i = 0; i < items.length; i++) {
          if ( $api.hasCls(items[i], 'clickSelColor') ){
@@ -138,12 +130,9 @@
 
       var item= $api.byId(id);
       $api.addCls(item,'clickSelColor');
-
       api.closeDrawerPane();
 
     }
-
-
 
 
 
