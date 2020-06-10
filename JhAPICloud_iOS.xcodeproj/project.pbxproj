@@ -18,6 +18,7 @@
 		E9B9AA412340B4F0004DBB37 /* JhConst.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B9AA402340B4F0004DBB37 /* JhConst.m */; };
 		E9B9AA4A2340B6C2004DBB37 /* AppDelegate+ThirdLib.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B9AA492340B6C2004DBB37 /* AppDelegate+ThirdLib.m */; };
 		ED1016E5239A3117003EFA95 /* KNZipArchive.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = ED9856432399F7260076C825 /* KNZipArchive.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ED5ADF0E2484F36F0073EF93 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED5ADF0D2484F36F0073EF93 /* Launch Screen.storyboard */; };
 		ED98563B2399F2E90076C825 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED98563A2399F2E90076C825 /* WebKit.framework */; };
 		ED98563D2399F2F70076C825 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ED98563C2399F2F70076C825 /* libz.tbd */; };
 		ED98563F2399F3020076C825 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ED98563E2399F3020076C825 /* libicucore.tbd */; };
@@ -97,6 +98,7 @@
 		E9B9AA402340B4F0004DBB37 /* JhConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JhConst.m; sourceTree = "<group>"; };
 		E9B9AA482340B6C2004DBB37 /* AppDelegate+ThirdLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+ThirdLib.h"; sourceTree = "<group>"; };
 		E9B9AA492340B6C2004DBB37 /* AppDelegate+ThirdLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ThirdLib.m"; sourceTree = "<group>"; };
+		ED5ADF0D2484F36F0073EF93 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		ED98563A2399F2E90076C825 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		ED98563C2399F2F70076C825 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		ED98563E2399F3020076C825 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
@@ -220,6 +222,7 @@
 			children = (
 				E95529842048E84A0088B24D /* Assets.xcassets */,
 				E95529892048E84A0088B24D /* Info.plist */,
+				ED5ADF0D2484F36F0073EF93 /* Launch Screen.storyboard */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				EDF56BAA247D13B2002E3BE5 /* top_page_xiala.gif in Resources */,
 				EDF56BA8247D13B2002E3BE5 /* EChart.gif in Resources */,
 				E95529852048E84A0088B24D /* Assets.xcassets in Resources */,
+				ED5ADF0E2484F36F0073EF93 /* Launch Screen.storyboard in Resources */,
 				EDF56BA6247D13B2002E3BE5 /* cehua.gif in Resources */,
 				EDF56BAB247D13B2002E3BE5 /* gridView.png in Resources */,
 				EDF56BA9247D13B2002E3BE5 /* xingxing.png in Resources */,

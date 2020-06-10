@@ -30,25 +30,26 @@
     // Override point for customization after application launch.
     
     
-        APIConfiguration *configuration = [[APIConfiguration alloc] init];
-      // 调试时可以开启WiFi代码同步功能
-      configuration.enableWifiSync = NO;
-      
-      [[APIManager sharedManager] initSDKWithLaunchOptions:launchOptions configuration:configuration];
-      
-      self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-      self.window.backgroundColor = [UIColor whiteColor];
-      
-      MainVC *controller = [[MainVC alloc] init];
-      APIWidgetContainer *navi = [[APIWidgetContainer alloc] initWithRootViewController:controller];
-      //      navi.navigationBar.barTintColor = [UZAppUtils colorFromNSString:@"#ffffff"];
-      //      navi.navigationBar.translucent = YES;
-      //      UIBarButtonItem * bar = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-      //      navi.navigationItem.backBarButtonItem = bar;
-      //      navi.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor blackColor]};
-      
-      self.window.rootViewController = navi;
-      [self.window makeKeyAndVisible];
+    APIConfiguration *configuration = [[APIConfiguration alloc] init];
+    // 调试时可以开启WiFi代码同步功能
+    configuration.enableWifiSync = NO;
+    
+    [[APIManager sharedManager] initSDKWithLaunchOptions:launchOptions configuration:configuration];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    MainVC *controller = [[MainVC alloc] init];
+    APIWidgetContainer *navi = [[APIWidgetContainer alloc] initWithRootViewController:controller];
+    controller.view.backgroundColor = [UIColor whiteColor];
+    //      navi.navigationBar.barTintColor = [UZAppUtils colorFromNSString:@"#ffffff"];
+    //      navi.navigationBar.translucent = YES;
+    //      UIBarButtonItem * bar = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    //      navi.navigationItem.backBarButtonItem = bar;
+    //      navi.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor blackColor]};
+    
+    self.window.rootViewController = navi;
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
