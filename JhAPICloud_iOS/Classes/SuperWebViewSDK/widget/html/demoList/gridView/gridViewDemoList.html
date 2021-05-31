@@ -8,124 +8,93 @@
     <title>GridViewDemoList</title>
     <link rel="stylesheet" type="text/css" href="../../../css/api.css" />
     <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
-    <link rel="stylesheet" type="text/css" href="../.././configs/commonCSS.css"/>
+    <link rel="stylesheet" type="text/css" href="../.././configs/commonCSS.css" />
 
     <style type="text/css">
-
-
-    #cell_item{
-    height: 50px;
-    }
-
-
+        #cell_item {
+            height: 50px;
+        }
     </style>
 </head>
 
 <body>
 
-
-
-
-
-  <header class="aui-bar aui-bar-nav baseThemeColor" id="header">
-      <a class="aui-pull-left aui-btn" tapmode onclick="closeWin()">
-          <span class="aui-iconfont aui-icon-left"></span>
-      </a>
-      <div class="aui-title">GridViewDemoList</div>
-  </header>
-
+    <header class="aui-bar aui-bar-nav baseThemeColor" id="header">
+        <a class="aui-pull-left aui-btn" tapmode onclick="closeWin()">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title">GridViewDemoList</div>
+    </header>
 
     <ul class="aui-list aui-list-in">
-    <section id="CellList">
-    </section>
+        <section id="CellList">
+        </section>
     </ul>
 
+</body>
+
+<script id="template" type="text/x-dot-template">
+    {{~it:value:index}}
+
+    <li class="aui-list-item" id="cell_item" tapmode="" onclick="ClickItem( '{{=value}}' )">
+        <div class="aui-list-item-inner aui-list-item-arrow">
+            {{=value}}
+        </div>
+    </li>
+
+    {{~}}
+</script>
 
 
-    </body>
-
-
-
-    <script id="template" type="text/x-dot-template">
-        {{~it:value:index}}
-
-          <li class="aui-list-item" id="cell_item" tapmode="" onclick="ClickItem( '{{=value}}' )">
-              <div class="aui-list-item-inner aui-list-item-arrow">
-                {{=value}}
-              </div>
-          </li>
-
-        {{~}}
-    </script>
-
-
-    <script type="text/javascript" src="../../../script/api.js"></script>
-    <script type="text/javascript" src="../../../script/doT.min.js"></script>
-    <script type="text/javascript" src="../../../script/template-web.js"></script>
-    <script type="text/javascript" src="../../../script/template-native.js"></script>
-    <script>
-
-    	apiready = function(){
-
-
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript" src="../../../script/doT.min.js"></script>
+<script type="text/javascript" src="../../../script/template-web.js"></script>
+<script type="text/javascript" src="../../../script/template-native.js"></script>
+<script>
+    apiready = function() {
         $api.fixStatusBar($api.byId('header'));
-
         initData();
+    }
 
-    	}
+    function closeWin() {
+        api.closeWin({});
+    }
 
-      function closeWin(){
-          api.closeWin({
-          });
-      }
+    function initData() {
+        var ALLData = ["GridView布局", "单选多选实现"];
+        // console.log("data---"+ JSON.stringify(ALLData));
 
-      function initData() {
-          var ALLData = ["GridView布局","单选多选实现"];
-          // console.log("data---"+ JSON.stringify(ALLData));
+        // dot 模板
+        var tempFn = doT.template($api.text($api.byId('template')));
+        $api.html($api.byId('CellList'), tempFn(ALLData));
+        api.parseTapmode();
 
-          // dot 模板
-          var tempFn = doT.template($api.text($api.byId('template')));
-          $api.html($api.byId('CellList'), tempFn(ALLData));
-          api.parseTapmode();
+        // // template-web 模板
+        // let html = template('template', ALLData);
+        // $api.html($api.byId('CellList'), html);
+        // api.parseTapmode();
 
-          // // template-web 模板
-          // let html = template('template', ALLData);
-          // $api.html($api.byId('CellList'), html);
-          // api.parseTapmode();
+        // // template-native 模板
+        // let html = template('template', {list: ALLData});
+        // $api.html($api.byId('CellList'), html);
+        // api.parseTapmode();
+    }
 
-          // // template-native 模板
-          // let html = template('template', {list: ALLData});
-          // $api.html($api.byId('CellList'), html);
-          // api.parseTapmode();
-
-
-      }
-      function ClickItem(str) {
+    function ClickItem(str) {
         console.log(str);
-
-              if (str == "GridView布局") {
-
-                      api.openWin({
-                          name: "gridView",
-                          url: "./gridView.html"
-                      });
-
-              }
-              if (str == "单选多选实现") {
-
-                      api.openWin({
-                          name: "multiSelectView",
-                          url: "./multiSelectView.html"
-                      });
-
-              }
-
-
-
-      }
-
-
-
-    </script>
+        if (str == "GridView布局") {
+            api.openWin({
+                name: "gridView",
+                url: "./gridView.html"
+            });
+        }
+        if (str == "单选多选实现") {
+            api.openWin({
+                name: "multiSelectView",
+                url: "./multiSelectView.html"
+            });
+        }
+    }
+</script>
 
 </html>

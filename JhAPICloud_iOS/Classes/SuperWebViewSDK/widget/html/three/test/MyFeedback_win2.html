@@ -1,35 +1,29 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
     <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
     <title> 跳转win+frame </title>
     <link rel="stylesheet" type="text/css" href="../../../css/api.css" />
     <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
-
     <style type="text/css">
-
         html {
             background: #ff9900;
         }
-
+        
         .aui-bar-nav {
             background-color: #37363b;
         }
-
         /*#footer{
           background-color: #6d9eeb;
         }*/
-
-
     </style>
 
-  </head>
+</head>
 
-
-  <body>
-
+<body>
 
     <header class="aui-bar aui-bar-nav" id="aui-header">
         <a class="aui-btn aui-pull-left" tapmode onclick="closeWin()">
@@ -41,103 +35,82 @@
         </a>
     </header>
 
-
     <footer class="aui-bar aui-bar-tab" id="footer">
-    <div class="aui-bar-tab-item aui-active" tapmode>
-        <i class="aui-iconfont aui-icon-home"></i>
-        <div class="aui-bar-tab-label">首页</div>
-    </div>
-    <div class="aui-bar-tab-item" tapmode>
-        <i class="aui-iconfont aui-icon-star"></i>
-        <div class="aui-bar-tab-label">收藏</div>
-    </div>
-    <div class="aui-bar-tab-item" tapmode>
-        <div class="aui-badge">99</div>
-        <i class="aui-iconfont aui-icon-cart"></i>
-        <div class="aui-bar-tab-label">购物车</div>
-    </div>
-    <div class="aui-bar-tab-item" tapmode>
-        <div class="aui-dot"></div>
-        <i class="aui-iconfont aui-icon-my"></i>
-        <div class="aui-bar-tab-label">我的</div>
-    </div>
+        <div class="aui-bar-tab-item aui-active" tapmode>
+            <i class="aui-iconfont aui-icon-home"></i>
+            <div class="aui-bar-tab-label">首页</div>
+        </div>
+        <div class="aui-bar-tab-item" tapmode>
+            <i class="aui-iconfont aui-icon-star"></i>
+            <div class="aui-bar-tab-label">收藏</div>
+        </div>
+        <div class="aui-bar-tab-item" tapmode>
+            <div class="aui-badge">99</div>
+            <i class="aui-iconfont aui-icon-cart"></i>
+            <div class="aui-bar-tab-label">购物车</div>
+        </div>
+        <div class="aui-bar-tab-item" tapmode>
+            <div class="aui-dot"></div>
+            <i class="aui-iconfont aui-icon-my"></i>
+            <div class="aui-bar-tab-label">我的</div>
+        </div>
     </footer>
-
-
-
     <label>跳转win+frame </label>
+</body>
 
-  </body>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript" src="../../../script/aui-tab.js"></script>
+<script type="text/javascript" src="../../../Lib/layui/layui.js"></script>
+<script type="text/javascript">
+    apiready = function() {
 
-  <script type="text/javascript" src="../../../script/api.js"></script>
-  <script type="text/javascript" src="../../../script/aui-tab.js" ></script>
-  <script type="text/javascript" src="../../../Lib/layui/layui.js"></script>
+        api.parseTapmode();
 
-  <script type="text/javascript">
+        var header = $api.byId('aui-header'); // 获取头部
+        $api.fixStatusBar(header); // 处理ios兼容
+        var header_frame = $api.offset(header); //左上宽高  // 获取位置数据
+        var body_h = $api.offset($api.dom('body')).h;
 
-
-          apiready = function() {
-
-            api.parseTapmode();
-
-            var header = $api.byId('aui-header');// 获取头部
-            $api.fixStatusBar(header); // 处理ios兼容
-            var header_frame = $api.offset(header); //左上宽高  // 获取位置数据
-            var body_h = $api.offset($api.dom('body')).h;
-
-            // console.log("header_frame left"+header_frame.l);
-            // console.log("header_frame top"+header_frame.t);
-            // console.log("header_frame width "+header_frame.w);
-            // console.log("header_frame h "+header_frame.h);
-            // console.log("body_h "+body_h);
+        // console.log("header_frame left"+header_frame.l);
+        // console.log("header_frame top"+header_frame.t);
+        // console.log("header_frame width "+header_frame.w);
+        // console.log("header_frame h "+header_frame.h);
+        // console.log("body_h "+body_h);
 
 
-            var header_Height = $api.fixStatusBar( $api.dom('header'));
-            console.log("header_Height === "+header_Height);
-            console.log("header_Height offsetHeight === "+header_Height.offsetHeight);
+        var header_Height = $api.fixStatusBar($api.dom('header'));
+        console.log("header_Height === " + header_Height);
+        console.log("header_Height offsetHeight === " + header_Height.offsetHeight);
 
+        // // 打开Frame
+        //   api.openFrame({
+        //       name: 'MyFeedback_frm2',
+        //       url: 'MyFeedback_frm2.html',
+        //       bounces: true,
+        //       vScrollBarEnabled: false,
+        //       rect: {
+        //           x: 0,
+        //           y: header_Height,// 头部留位置
+        //           w: 'auto',
+        //           h: 'auto'
+        //       }
+        //   })
 
+    }
 
-            // // 打开Frame
-            //   api.openFrame({
-            //       name: 'MyFeedback_frm2',
-            //       url: 'MyFeedback_frm2.html',
-            //       bounces: true,
-            //       vScrollBarEnabled: false,
-            //       rect: {
-            //           x: 0,
-            //           y: header_Height,// 头部留位置
-            //           w: 'auto',
-            //           h: 'auto'
-            //       }
-            //   })
+    function closeWin() {
+        api.closeWin({});
+    }
 
+    var tab = new auiTab({
+        element: document.getElementById("footer"),
+        index: 1,
+        repeatClick: false
+    }, function(ret) {
+        /* index:1,当前点击的位置,默认为1
+        dom:el 当前点击的dom对象 */
+        console.log("点击的tab index == " + ret.index);
+    });
+</script>
 
-
-
-        }
-
-
-
-        function closeWin(){
-            api.closeWin({
-            });
-        }
-
-
-        var tab = new auiTab({
-
-           element:document.getElementById("footer"),
-           index:1,
-           repeatClick:false
-           },function(ret){
-            /* index:1,当前点击的位置,默认为1
-            dom:el 当前点击的dom对象 */
-             console.log("点击的tab index == "+ ret.index);
-        });
-
-
-
-  </script>
-
-  </html>
+</html>

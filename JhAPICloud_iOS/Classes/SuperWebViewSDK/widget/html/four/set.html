@@ -10,136 +10,104 @@
     <link rel="stylesheet" type="text/css" href="../../css/aui.css" />
 
     <style type="text/css">
-
-
-    #cell_item{
-    height: 50px;
-    }
-
-    .aui-bar{
-      background: #45C01A;
-    }
-
+        #cell_item {
+            height: 50px;
+        }
+        
+        .aui-bar {
+            background: #45C01A;
+        }
     </style>
 </head>
 
 <body>
 
-
-
-
-
-  <header class="aui-bar aui-bar-nav baseThemeColor" id="header">
-      <a class="aui-pull-left aui-btn" tapmode onclick="closeWin()">
-          <span class="aui-iconfont aui-icon-left"></span>
-      </a>
-      <div class="aui-title">设置</div>
-  </header>
-
+    <header class="aui-bar aui-bar-nav baseThemeColor" id="header">
+        <a class="aui-pull-left aui-btn" tapmode onclick="closeWin()">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title">设置</div>
+    </header>
 
     <ul class="aui-list aui-list-in">
-    <section id="CellList">
-    </section>
+        <section id="CellList">
+        </section>
     </ul>
+</body>
 
+<script id="template" type="text/x-dot-template">
+    {{~it:value:index}}
+    <li class="aui-list-item" id="cell_item" tapmode="" onclick="ClickItem( '{{=value}}' )">
+        <div class="aui-list-item-inner aui-list-item-arrow">
+            {{=value}}
+        </div>
+    </li>
 
+    {{~}}
+</script>
 
-    </body>
-
-
-
-    <script id="template" type="text/x-dot-template">
-        {{~it:value:index}}
-
-          <li class="aui-list-item" id="cell_item" tapmode="" onclick="ClickItem( '{{=value}}' )">
-              <div class="aui-list-item-inner aui-list-item-arrow">
-                {{=value}}
-              </div>
-          </li>
-
-        {{~}}
-    </script>
-
-
-    <script type="text/javascript" src="../../script/api.js"></script>
-    <script type="text/javascript" src="../../script/doT.min.js"></script>
-    <script type="text/javascript" src="../../script/template-web.js"></script>
-    <script type="text/javascript" src="../../script/template-native.js"></script>
-    <script>
-
-    	apiready = function(){
-
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/doT.min.js"></script>
+<script type="text/javascript" src="../../script/template-web.js"></script>
+<script type="text/javascript" src="../../script/template-native.js"></script>
+<script>
+    apiready = function() {
 
         $api.fixStatusBar($api.byId('header'));
-
         initData();
+    }
 
-    	}
+    function closeWin() {
+        api.closeWin({});
+    }
 
-      function closeWin(){
-          api.closeWin({
-          });
-      }
+    function initData() {
+        var ALLData = ["版本更新"];
+        // console.log("data---"+ JSON.stringify(ALLData));
 
-      function initData() {
-          var ALLData = ["版本更新"];
-          // console.log("data---"+ JSON.stringify(ALLData));
+        // dot 模板
+        var tempFn = doT.template($api.text($api.byId('template')));
+        $api.html($api.byId('CellList'), tempFn(ALLData));
+        api.parseTapmode();
+    }
 
-          // dot 模板
-          var tempFn = doT.template($api.text($api.byId('template')));
-          $api.html($api.byId('CellList'), tempFn(ALLData));
-          api.parseTapmode();
-
-
-
-
-      }
-      function ClickItem(str) {
-
+    function ClickItem(str) {
         console.log(str);
 
         if (str == "版本更新") {
+            api.openFrame({
+                name: 'versionUpdate',
+                url: './versionUpdate.html',
+                rect: {
+                    x: 0,
+                    y: 0,
+                    w: api.winWidth,
+                    h: api.winHeight
+                },
+                pageParam: {
+                    value1: 'test123'
+                },
+                bounces: false,
+                bgColor: 'rgba(255,255,255,0)',
+                vScrollBarEnabled: false,
+                hScrollBarEnabled: false
+            });
 
-        api.openFrame({
-            name: 'versionUpdate',
-            url: './versionUpdate.html',
-            rect: {
-                x: 0,
-                y: 0,
-                w: api.winWidth,
-                h: api.winHeight
-            },
-            pageParam: {
-                value1: 'test123'
-            },
-            bounces: false,
-            bgColor: 'rgba(255,255,255,0)',
-            vScrollBarEnabled: false,
-            hScrollBarEnabled: false
-        });
-
-      // api.confirm({
-     //     title: '发现新版本（'+ rets.data.appVersion +'）',
-     //     buttons: ['稍后处理', '去更新']
-     // }, function(ret, err) {
-     //     var index = ret.buttonIndex;
-     //     if(index ==2){
-     //         api.accessNative({
-     //             name: "upGradleVersion",
-     //         }, function (ret, err) {
-     //         });
-     //     }
-     // });
-
-
+            // api.confirm({
+            //     title: '发现新版本（'+ rets.data.appVersion +'）',
+            //     buttons: ['稍后处理', '去更新']
+            // }, function(ret, err) {
+            //     var index = ret.buttonIndex;
+            //     if(index ==2){
+            //         api.accessNative({
+            //             name: "upGradleVersion",
+            //         }, function (ret, err) {
+            //         });
+            //     }
+            // });
         }
 
-
-
-      }
-
-
-
-    </script>
+    }
+</script>
 
 </html>

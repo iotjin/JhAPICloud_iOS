@@ -1,8 +1,9 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
     <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
     <title>窗口系统</title>
     <link rel="stylesheet" type="text/css" href="../../../css/api.css" />
@@ -10,141 +11,126 @@
     <link rel="stylesheet" type="text/css" href="../../../css/aui.2.0.css" />
 
     <style type="text/css">
-
-    /*.aui-list-item{
+        /*.aui-list-item{
       height: 50px;
     }*/
-
-
-    #cell_text{
-      height: 60px;
-    }
-
-    #cell_yijian{
-      height: 60px;
-    }
-
+        
+        #cell_text {
+            height: 60px;
+        }
+        
+        #cell_yijian {
+            height: 60px;
+        }
     </style>
+</head>
 
+<body>
 
-
-    </head>
-
-    <body >
-
-      <!-- <div class="info-area">
+    <!-- <div class="info-area">
         <h2>page3<h2>
       </div> -->
 
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-list-in">
+            <li class="aui-list-header">
+                带有右侧箭头
+            </li>
+            <li class="aui-list-item aui-list-item-small">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">Item1</div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">Item2</div>
+                </div>
+            </li>
+
+            <li class="aui-list-item" id="cell_text">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">Item3</div>
+                </div>
+            </li>
 
 
-      <div class="aui-content aui-margin-b-15">
-          <ul class="aui-list aui-list-in">
-              <li class="aui-list-header">
-                  带有右侧箭头
-              </li>
-              <li class="aui-list-item aui-list-item-small">
-                  <div class="aui-list-item-inner aui-list-item-arrow">
-                      <div class="aui-list-item-title">Item1</div>
-                  </div>
-              </li>
-              <li class="aui-list-item" >
-                  <div class="aui-list-item-inner aui-list-item-arrow">
-                      <div class="aui-list-item-title">Item2</div>
-                  </div>
-              </li>
+            <li class="aui-list-item" id="cell_yijian" tapmode="" onclick="clickyijian()">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">跳转</div>
+                </div>
+            </li>
 
-              <li class="aui-list-item" id="cell_text">
-                  <div class="aui-list-item-inner aui-list-item-arrow">
-                      <div class="aui-list-item-title">Item3</div>
-                  </div>
-              </li>
+        </ul>
+    </div>
 
 
-              <li class="aui-list-item" id="cell_yijian" tapmode="" onclick="clickyijian()">
-                  <div class="aui-list-item-inner aui-list-item-arrow">
-                      <div class="aui-list-item-title">跳转</div>
-                  </div>
-              </li>
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-list-in">
+            <li class="aui-list-header">带有图标、底线缩进</li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-label-icon">
+                    <img src="../../../image/touxiang.jpg" width="30px" height="30px">
+                </div>
+                <div class="aui-list-item-inner">
+                    这是一个列表项
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-label-icon">
+                    <!-- <i class="aui-iconfont aui-icon-edit"></i> -->
+                    <img src="../../../image/touxiang.jpg" width="30px" height="30px">
+                </div>
+                <div class="aui-list-item-inner">
+                    这是一个列表项
+                </div>
+            </li>
+        </ul>
+    </div>
 
-          </ul>
-      </div>
+    <!-- -------------------------------------------- -->
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-media-list">
+            <li class="aui-list-item aui-list-item-middle">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media" style="width: 3rem;">
+                        <img src="../../../image/touxiang.jpg" class="aui-img-round aui-list-img-sm">
+                    </div>
+                    <div class="aui-list-item-inner aui-list-item-arrow" tapmode="" onclick="clickTwo()">
+                        朋友圈
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-media-list">
+            <li class="aui-list-item aui-list-item-middle">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media" style="width: 2.5rem;">
+                        <img src="../../../image/touxiang.jpg" class="aui-img-round aui-list-img-sm">
+                    </div>
+                    <div class="aui-list-item-inner aui-list-item-arrow">
+                        二二二
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item aui-list-item-middle">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media" style="width: 2rem;">
+                        <img src="../../../image/touxiang.jpg" class="aui-img aui-list-img-sm">
+                    </div>
+                    <div class="aui-list-item-inner aui-list-item-arrow">
+                        三三三
+                    </div>
+                </div>
+            </li>
 
+        </ul>
+    </div>
 
-      <div class="aui-content aui-margin-b-15">
-          <ul class="aui-list aui-list-in">
-              <li class="aui-list-header">带有图标、底线缩进</li>
-              <li class="aui-list-item">
-                  <div class="aui-list-item-label-icon">
-                      <img src="../../../image/touxiang.jpg" width="30px" height="30px">
-                  </div>
-                  <div class="aui-list-item-inner">
-                      这是一个列表项
-                  </div>
-              </li>
-              <li class="aui-list-item">
-                  <div class="aui-list-item-label-icon">
-                      <!-- <i class="aui-iconfont aui-icon-edit"></i> -->
-                      <img src="../../../image/touxiang.jpg" width="30px" height="30px">
-                  </div>
-                  <div class="aui-list-item-inner">
-                      这是一个列表项
-                  </div>
-              </li>
-          </ul>
-      </div>
-
-
-
-
-<!-- -------------------------------------------- -->
-      <div class="aui-content aui-margin-b-15">
-          <ul class="aui-list aui-media-list">
-              <li class="aui-list-item aui-list-item-middle">
-                  <div class="aui-media-list-item-inner">
-                      <div class="aui-list-item-media" style="width: 3rem;">
-                          <img src="../../../image/touxiang.jpg" class="aui-img-round aui-list-img-sm">
-                      </div>
-                      <div class="aui-list-item-inner aui-list-item-arrow"  tapmode="" onclick="clickTwo()">
-                          朋友圈
-                      </div>
-                  </div>
-              </li>
-          </ul>
-      </div>
-      <div class="aui-content aui-margin-b-15">
-          <ul class="aui-list aui-media-list">
-              <li class="aui-list-item aui-list-item-middle">
-                  <div class="aui-media-list-item-inner">
-                      <div class="aui-list-item-media" style="width: 2.5rem;">
-                          <img src="../../../image/touxiang.jpg" class="aui-img-round aui-list-img-sm">
-                      </div>
-                      <div class="aui-list-item-inner aui-list-item-arrow">
-                          二二二
-                      </div>
-                  </div>
-              </li>
-              <li class="aui-list-item aui-list-item-middle">
-                  <div class="aui-media-list-item-inner">
-                      <div class="aui-list-item-media" style="width: 2rem;" >
-                          <img src="../../../image/touxiang.jpg" class="aui-img aui-list-img-sm">
-                      </div>
-                      <div class="aui-list-item-inner aui-list-item-arrow">
-                          三三三
-                      </div>
-                  </div>
-              </li>
-
-          </ul>
-      </div>
-
-
-
-
-      <ul class="aui-list aui-margin-b-10">
-
+    <ul class="aui-list aui-margin-b-10">
         <!-- <ul class="aui-list"> -->
-          <li class="aui-list-item">
+        <li class="aui-list-item">
             <div class="aui-list-item-label-icon aui-list-item-middle" style="width: 1.9rem;">
                 <img class="touxiang" src="../../../icon/setting.png">
             </div>
@@ -152,91 +138,74 @@
                 设置
             </div>
         </li>
-        </ul>
+    </ul>
 
-
-        <ul class="aui-list aui-margin-b-10">
+    <ul class="aui-list aui-margin-b-10">
         <!-- <ul class="aui-list"> -->
-          <li class="aui-list-item">
-              <div class="aui-list-item-label-icon aui-list-item-middle" style="width: 1.9rem;">
-                  <img class="touxiang" src="../../../icon/revis_pass.png">
-              </div>
-              <div class="aui-list-item-inner aui-list-item-arrow">
-                  修改密码
-              </div>
-          </li>
-          </ul>
+        <li class="aui-list-item">
+            <div class="aui-list-item-label-icon aui-list-item-middle" style="width: 1.9rem;">
+                <img class="touxiang" src="../../../icon/revis_pass.png">
+            </div>
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                修改密码
+            </div>
+        </li>
+    </ul>
 
-          <ul class="aui-list aui-margin-b-5">
-            <!-- <ul class="aui-list"> -->
-            <li class="aui-list-item">
-                <div class="aui-list-item-label-icon aui-list-item-middle" style="width: 1.9rem;">
-                    <img class="touxiang" src="../../../icon/about_app.png">
-                </div>
-                <div class="aui-list-item-inner aui-list-item-arrow">
-                    关于应用
-                </div>
-            </li>
-            </ul>
+    <ul class="aui-list aui-margin-b-5">
+        <!-- <ul class="aui-list"> -->
+        <li class="aui-list-item">
+            <div class="aui-list-item-label-icon aui-list-item-middle" style="width: 1.9rem;">
+                <img class="touxiang" src="../../../icon/about_app.png">
+            </div>
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                关于应用
+            </div>
+        </li>
+    </ul>
 
-            <ul class="aui-list">
-              <li class="aui-list-item">
-                  <div class="aui-list-item-label-icon aui-list-item-middle" style="width: 1.9rem;">
-                      <img class="touxiang" src="../../../icon/advice_call_back.png">
-                  </div>
-                  <div class="aui-list-item-inner aui-list-item-arrow">
-                      意见反馈
-                  </div>
-              </li>
-            </ul>
+    <ul class="aui-list">
+        <li class="aui-list-item">
+            <div class="aui-list-item-label-icon aui-list-item-middle" style="width: 1.9rem;">
+                <img class="touxiang" src="../../../icon/advice_call_back.png">
+            </div>
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                意见反馈
+            </div>
+        </li>
+    </ul>
 
+</body>
 
+<script type="text/javascript" src="../../../script/api.js"></script>
+<!-- <script type="text/javascript"> -->
+<script>
+    apiready = function() {
 
+    }
 
-
-
-
-    </body>
-
-
-    <script type="text/javascript" src="../../../script/api.js"></script>
-
-
-    <!-- <script type="text/javascript"> -->
-
-    <script>
-    	apiready = function(){
-
-
-    	}
-
-      function clickTwo(){
-
+    function clickTwo() {
         // api.toast({
         //     msg: '点击朋友圈',
         //     duration: 2000,
         //     location: 'bottom'
         // });
-
         var param = {
-          name: 'nav',
-          url: '../../../html/Test/jumpNavView.html',
-          title: '标题title',
+            name: 'nav',
+            url: '../../../html/Test/jumpNavView.html',
+            title: '标题title',
             navigationBar: {
-              background: '#FFC0CB',
-              color: '#fff',
-                      rightButtons: [{
-                          iconPath: "widget://image/more.png"
-                      }]
-                  }
+                background: '#FFC0CB',
+                color: '#fff',
+                rightButtons: [{
+                    iconPath: "widget://image/more.png"
+                }]
+            }
         }
         api.openTabLayout(param);
+    }
 
-
-      }
-
-      function clickyijian(){
-
+    function clickyijian() {
         // api.toast({
         //     msg: '跳转',
         //     duration: 2000,
@@ -250,37 +219,25 @@
         //         name: 'test'
         //     }
         // });
+        openNavWin();
+    }
 
-
-openNavWin();
-
-
-      }
-
-
-      function openNavWin(){
+    function openNavWin() {
         var param = {
-          name: 'nav',
-          url: '../../../html/Feedback/MyFeedback_win.html',
-          bgColor: '#fff',
-          title: '标题title',
+            name: 'nav',
+            url: '../../../html/Feedback/MyFeedback_win.html',
+            bgColor: '#fff',
+            title: '标题title',
             navigationBar: {
-              background: '#45C01A',
-              color: '#fff',
-                      rightButtons: [{
-                          iconPath: "widget://image/more.png"
-                      }]
-                  }
+                background: '#45C01A',
+                color: '#fff',
+                rightButtons: [{
+                    iconPath: "widget://image/more.png"
+                }]
+            }
         }
         api.openTabLayout(param);
-      }
-
-
-
-
-
-
-
-    </script>
+    }
+</script>
 
 </html>

@@ -1,112 +1,121 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>我的分页</title>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>我的分页</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 
 </head>
+
 <style>
-#div img{width:30px;height:30px;}
+    #div img {
+        width: 30px;
+        height: 30px;
+    }
 </style>
+
 <body>
-<div id="div">
-　　<span id="0"><img src="img/star_empty.png"/></span><span id="1"><img src="img/star_empty.png"/></span><span id="2"><img src="img/star_empty.png"/></span><span id="3"><img src="img/star_empty.png"/></span><span id="4"><img src="img/star_empty.png"/></span>
-</div>
+    <div id="div">
+        <span id="0"><img src="img/star_empty.png" /></span><span id="1"><img src="img/star_empty.png" /></span><span id="2"><img src="img/star_empty.png" /></span><span id="3"><img src="img/star_empty.png" /></span><span id="4"><img src="img/star_empty.png" /></span>
+    </div>
 </body>
+
 <script type="text/javascript">
-var spans=document.getElementsByTagName("span");
-var flag=5;//这个值随便取，只要不是01234就行
-var imgWidth=document.getElementsByTagName("img")[0].width;
-var halfImg=imgWidth/2;
-console.log(imgWidth);
-var Expand=function(i){
-	if($('img').hasClass('halfcls')){
-		alert(i+0.5+'分');
-	}else{
-		alert(i+1+'分')
-	}
-};
+    var spans = document.getElementsByTagName("span");
+    var flag = 5; //这个值随便取，只要不是01234就行
+    var imgWidth = document.getElementsByTagName("img")[0].width;
+    var halfImg = imgWidth / 2;
+    console.log(imgWidth);
+    var Expand = function(i) {
+        if ($('img').hasClass('halfcls')) {
+            alert(i + 0.5 + '分');
+        } else {
+            alert(i + 1 + '分')
+        }
+    };
 
-οnlοad=function(){
-　　//循环载入鼠标移入事件
-　　for(var i=0;i<spans.length;i++){
-		console.log(i);
-　　　　spans[i].οnmοuseοver=function(e){
-　　　　　　var id=parseInt(this.id);
-			if(id == 0){
-				$('#'+id).on('mousemove',function(){
-					var imgDynamicWidth = e.clientX - $('#'+id).offset().left;
-					if(imgDynamicWidth < $('#'+id).width()/2){
-						spans[id].innerHTML="<img src='img/star_half.png' class='halfcls'/>";
-					}else{
-						spans[id].innerHTML="<img src='img/star_yellow.png'/>";
-					}
-				});
-			}else{
-	　　　　　　for(var i=0;i<id;i++){
+    οnlοad = function() {
+        //循环载入鼠标移入事件
+        for (var i = 0; i < spans.length; i++) {
+            console.log(i);
+            spans[i].οnmοuseοver = function(e) {
+                var id = parseInt(this.id);
+                if (id == 0) {
+                    $('#' + id).on('mousemove', function() {
+                        var imgDynamicWidth = e.clientX - $('#' + id).offset().left;
+                        if (imgDynamicWidth < $('#' + id).width() / 2) {
+                            spans[id].innerHTML = "<img src='img/star_half.png' class='halfcls'/>";
+                        } else {
+                            spans[id].innerHTML = "<img src='img/star_yellow.png'/>";
+                        }
+                    });
+                } else {
+                    for (var i = 0; i < id; i++) {
 
-					$('#'+id).on('mousemove',function(){
-						var imgDynamicWidth = e.clientX - $('#'+id).offset().left;
-						if(imgDynamicWidth < $('#'+id).width()/2){
-							spans[id].innerHTML="<img src='img/star_half.png' class='halfcls'/>";
-						}else{
-							spans[id].innerHTML="<img src='img/star_yellow.png'/>";
-						}
-					});
-	　　　　　　　　spans[i].innerHTML="<img src='img/star_yellow.png'/>";
-	　　　　　　}
-			}
-　　　　　　for(var j=id+1;j<5;j++){
-　　　　　　　　spans[j].innerHTML="<img src='img/star_empty.png'/>";
-　　　　　　}
+                        $('#' + id).on('mousemove', function() {
+                            var imgDynamicWidth = e.clientX - $('#' + id).offset().left;
+                            if (imgDynamicWidth < $('#' + id).width() / 2) {
+                                spans[id].innerHTML = "<img src='img/star_half.png' class='halfcls'/>";
+                            } else {
+                                spans[id].innerHTML = "<img src='img/star_yellow.png'/>";
+                            }
+                        });
+                        spans[i].innerHTML = "<img src='img/star_yellow.png'/>";
+                    }
+                }
+                for (var j = id + 1; j < 5; j++) {
+                    spans[j].innerHTML = "<img src='img/star_empty.png'/>";
+                }
 
-　　　　};
-　　}
-　　//循环载入鼠标点击星星事件
-　　for(var i=0;i<spans.length;i++){
-　　　　spans[i].οnclick=function(){
-　　　　　　var id=parseInt(this.id);
-　　　　　　flag=id;
-　　　　　　for(var i=0;i<id;i++){
-				$('#'+id).on('mousemove',function(e){
-					var imgDynamicWidth = e.clientX - $('#'+id).offset().left;
-					if(imgDynamicWidth < $('#'+id).width()/2){
-						//console.log('half');
-						spans[id].innerHTML="<img src='img/star_half.png' class='halfcls'/>";
-					}else{
-						spans[id].innerHTML="<img src='img/star_yellow.png'/>";
-					}
-				});
-　　　　　　　　spans[i].innerHTML="<img src='img/star_yellow.png'/>";
-　　　　　　}
-			Expand(i);//这里是鼠标点击星星的扩展
-　　　　};
-　　}
-　　//载入鼠标离开div事件
-　　document.getElementById("div").οnmοuseleave=function(){
-　　　　//如果tag是3，则循环给把0 1 2 3几个星星整黄
-　　　　if(flag>=0 && flag<=4){
-　　　　　　for(var i=0;i<flag;i++){
-				$('#'+flag).on('mousemove',function(e){
-					var imgDynamicWidth = e.clientX - $('#'+flag).offset().left;
-					if(imgDynamicWidth < $('#'+flag).width()/2){
-						spans[flag].innerHTML="<img src='img/star_half.png' class='halfcls'/>";
-					}else{
-						spans[flag].innerHTML="<img src='img/star_yellow.png'/>";
-					}
-				})
-　　　　　　　　spans[i].innerHTML="<img src='img/star_yellow.png'/>";
-　　　　　　}
-　　　　　　for(var j=flag+1;j<5;j++){
-　　　　　　　　spans[j].innerHTML="<img src='img/star_empty.png'/>";
-　　　　　	}
-	　　}else{//如果tag没有值或者是初值5，则把所有的星星还原成空星星
-	　　　　　　for(var i=0;i<spans.length;i++){
-	　　　　　　　　spans[i].innerHTML="<img src='img/star_empty.png'/>";
-	　　　　　　}
-	　　}
-　　};
-};
+            };
+        }
+        //循环载入鼠标点击星星事件
+        for (var i = 0; i < spans.length; i++) {
+            spans[i].οnclick = function() {
+                var id = parseInt(this.id);
+                flag = id;
+                for (var i = 0; i < id; i++) {
+                    $('#' + id).on('mousemove', function(e) {
+                        var imgDynamicWidth = e.clientX - $('#' + id).offset().left;
+                        if (imgDynamicWidth < $('#' + id).width() / 2) {
+                            //console.log('half');
+                            spans[id].innerHTML = "<img src='img/star_half.png' class='halfcls'/>";
+                        } else {
+                            spans[id].innerHTML = "<img src='img/star_yellow.png'/>";
+                        }
+                    });
+                    spans[i].innerHTML = "<img src='img/star_yellow.png'/>";
+                }
+                Expand(i); //这里是鼠标点击星星的扩展
+            };
+        }
+        //载入鼠标离开div事件
+        document.getElementById("div").οnmοuseleave = function() {
+            //如果tag是3，则循环给把0 1 2 3几个星星整黄
+            if (flag >= 0 && flag <= 4) {
+                for (var i = 0; i < flag; i++) {
+                    $('#' + flag).on('mousemove', function(e) {
+                        var imgDynamicWidth = e.clientX - $('#' + flag).offset().left;
+                        if (imgDynamicWidth < $('#' + flag).width() / 2) {
+                            spans[flag].innerHTML = "<img src='img/star_half.png' class='halfcls'/>";
+                        } else {
+                            spans[flag].innerHTML = "<img src='img/star_yellow.png'/>";
+                        }
+                    })
+                    spans[i].innerHTML = "<img src='img/star_yellow.png'/>";
+                }
+                for (var j = flag + 1; j < 5; j++) {
+                    spans[j].innerHTML = "<img src='img/star_empty.png'/>";
+                }
+            } else { //如果tag没有值或者是初值5，则把所有的星星还原成空星星
+                for (var i = 0; i < spans.length; i++) {
+                    spans[i].innerHTML = "<img src='img/star_empty.png'/>";
+                }
+            }
+        };
+    };
 </script>
+
 </html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+    <style>
+        body {}
+    </style>
+</head>
+
+<body>
+    <header class="aui-bar aui-bar-nav" id="win-header">
+        <a class="aui-btn aui-pull-left" tapmode onclick="closeWin()">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title" id="win-station-name">一键报修</div>
+        <a class="aui-btn aui-pull-right" tapmode onclick="jumpNext()">
+            报修记录
+        </a>
+
+    </header>
+
+</body>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        $api.fixStatusBar($api.byId('win-header'));
+        api.openFrame({
+            name: 'form_frm',
+            url: 'form_frm.html',
+            bounces: false,
+            rect: {
+                x: 0,
+                y: $api.offset($api.byId('win-header')).h,
+                w: 'auto',
+                h: 'auto'
+            },
+            pageParam: api.pageParam,
+        });
+    }
+
+    function closeWin() {
+        api.closeWin({});
+    }
+
+    //记录
+    function jumpNext() {
+        api.openWin({
+            name: "form_list_win",
+            url: "form_list_win.html"
+        });
+    }
+</script>
+
+</html>

@@ -1,8 +1,9 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
     <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
     <title>窗口系统</title>
     <link rel="stylesheet" type="text/css" href="../css/api.css" />
@@ -10,73 +11,48 @@
 
     <style type="text/css">
 
-
     </style>
-
 </head>
-
 
 <body>
 
-
-
 </body>
 <script>
-   apiready = function(){
-
-
+    apiready = function() {
         switchRootVC();
+    }
 
-   }
+    function switchRootVC() {
+        //  api.openWin({
+        //      name: 'Project_Login',
+        //      url: './Project_Login.html',
+        //      slidBackEnabled: false,
+        //      pageParam: {
+        //          name: 'Project_Login'
+        //      },
+        //      animation:{
+        //          type:"none",                //动画类型（详见动画类型常量）
+        //          subType:"from_right",       //动画子类型（详见动画子类型常量）
+        //          duration:300                //动画过渡时间，默认300毫秒
+        //      }
+        //  });
 
-   function switchRootVC () {
-
-
-
-
-    //  api.openWin({
-    //      name: 'Project_Login',
-    //      url: './Project_Login.html',
-    //      slidBackEnabled: false,
-    //      pageParam: {
-    //          name: 'Project_Login'
-    //      },
-    //      animation:{
-    //          type:"none",                //动画类型（详见动画类型常量）
-    //          subType:"from_right",       //动画子类型（详见动画子类型常量）
-    //          duration:300                //动画过渡时间，默认300毫秒
-    //      }
-    //  });
-
-
-
-
-      api.openWin({
-          name: 'login',
-          url: './login/login.html',
-      slidBackEnabled: false,
-          pageParam: {
-              name: 'login'
-          }
-      });
-
-
-      // api.openWin({
-      //   name: 'tabVC',
-      //   url: '../html/TabVC/tabVC.html',
-      //   pageParam: {
-      //       name: 'test'
-      //   }
-      // });
-
-
-
-  }
-
-
-
-
-
+        api.openWin({
+            name: 'login',
+            url: './login/login.html',
+            slidBackEnabled: false,
+            pageParam: {
+                name: 'login'
+            }
+        });
+        // api.openWin({
+        //   name: 'tabVC',
+        //   url: '../html/TabVC/tabVC.html',
+        //   pageParam: {
+        //       name: 'test'
+        //   }
+        // });
+    }
 </script>
 
 </html>

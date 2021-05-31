@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>otherDemoList</title>
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <title></title>
+</head>
+
+<style type="text/css">
+    .table {
+        border-collapse: collapse;
+        width: 100%;
+        border-color: #CCCCCC;
+    }
+    
+    .err {
+        width: 100%;
+        height: 40px;
+        padding-top: 50px;
+        text-align: center;
+    }
+</style>
+
+<body>
+
+    <div id="main">
+        <table bordercolor="black" border="1" id="table" class="table">
+            <tr align="left">
+                <th>上报时间</th>
+                <th>状态</th>
+                <th>红包</th>
+            </tr>
+        </table>
+    </div>
+
+</body>
+<script type="text/javascript">
+    // var list = [
+    //     {
+    //         sbsj: "2020-20-02 12:20:20",
+    //         type: "审核中",
+    //         hbje: "XXXXX",
+    //     },
+    //     {
+    //         sbsj: "2020-20-02 12:20:20",
+    //         type: "审核中",
+    //         hbje: "XXXXX",
+    //     },
+    //     {
+    //         sbsj: "2020-20-02 12:20:20",
+    //         type: "审核中",
+    //         hbje: "XXXXX",
+    //     },
+    //     {
+    //         sbsj: "2020-20-02 12:20:20",
+    //         type: "审核中",
+    //         hbje: "XXXXX",
+    //     },
+    //     {
+    //         sbsj: "2020-20-02 12:20:20",
+    //         type: "审核中",
+    //         hbje: "XXXXX",
+    //     },
+    // ]
+
+    var list = []
+    var url = decodeURI(window.location.href);
+    var argsIndex = url.split("?obj=");
+    var jsonStr = argsIndex[1];
+
+    list = JSON.parse(jsonStr);
+
+    if (!list.length) {
+        var cent = document.getElementById("main");
+        cent.innerHTML += "<div class='err'>查询失败</div>"
+    } else {
+        var cent = document.getElementById("table");
+        for (var i = 0; i < list.length; i++) {
+            cent.innerHTML +=
+                "<tr><td>" + list[i].sbsj + "</td>" +
+                "<td>" + list[i].type + "</td>" +
+                "<td>" + list[i].hbje + "</td></tr>";
+        }
+    }
+</script>
+
+</html>

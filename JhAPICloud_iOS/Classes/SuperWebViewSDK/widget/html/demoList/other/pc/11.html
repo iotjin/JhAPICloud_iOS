@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>otherDemoList</title>
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <title></title>
+</head>
+
+<style type="text/css">
+    .id-w {
+        width: 100%;
+        height: 60px;
+        border: 1px solid #ccc;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .table {
+        border-collapse: collapse;
+        /*width: 100rem;*/
+        width: 100%;
+        border-color: #CCCCCC;
+    }
+    
+    .err {
+        width: 100%;
+        height: 40px;
+        padding-top: 50px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <form action="">
+        <tbody id="daohang"></tbody>
+    </form>
+
+    <div id="main">
+        <div id="" class="id-w">
+            <div id="">上报时间</div>
+            <div id=""> 状态</div>
+            <div id=""> 结果</div>
+            <div id=""> 红包</div>
+        </div>
+    </div>
+
+    <div id="main2">
+        <!--    <table bordercolor="black" width="600" border="1" cellspacing="0" cellpadding="1" id="main2" class="table">-->
+        <table bordercolor="black" border="1" id="table" class="table">
+            <tr align="left">
+                <th>上报时间</th>
+                <th>状态</th>
+                <th>结果</th>
+                <th>红包</th>
+            </tr>
+            <!--        <tr>-->
+            <!--            <td>1.1</td>-->
+            <!--            <td>1.2</td>-->
+            <!--            <td>1.3</td>-->
+            <!--            <td>1.3</td>-->
+            <!--        </tr>-->
+        </table>
+    </div>
+    <br/>
+
+
+</body>
+<script type="text/javascript">
+    //			页面渲染
+    // $.ajax({
+    //     type:"get",
+    //     url:"http://***",
+    //     async:true,
+    //     dataType:"json",
+    //     success:function(data){
+    //         console.log(JSON.stringify(data))
+    //         var arr={};
+    //         var obj=eval(data);
+    //         var dh='';
+    //         for(i=0;i<obj.length;i++){
+    //             for(j=0;j<obj[i].child.length;j++){
+    //                 arr = obj[i].child[j]
+    //                 console.log("111:"+JSON.stringify(obj[i]))
+    //                 console.log("ww:"+arr.id)
+    //
+    //             }
+    //             if(obj[i].is_show==1){
+    //                 var show='显示';
+    //             }else{
+    //                 var show='隐藏';
+    //             }
+    //             dh+='<ol class="dd-list">';
+    //             dh+='	<li class="dd-item full" data-id="74576">  ';
+    //             dh+='	   <div class="dd-handle">[ID:'+obj[i].id+'] '+obj[i].title +'<span class="pull-right">  ';
+    //             dh+='          <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1">'+show+'</div>        ';
+    //             dh+='	       <ol class="dd-list">              ';
+    //             dh+='		 <li class="dd-item full" data-id="74577">      ';
+    //             dh+='			<div class="dd-handle" style="width:100%;">     ';
+    //             dh+='				<img src="http://123.207.41.93/jtct/Uploads/'+arr.image_1+'" width="30" height="30" onerror="$(this).remove()"  ';
+    //             dh+='     style="padding:1px;border: 1px solid #ccc;float:left;" />   [ID: '+arr.id+'] '+arr.title+' <span class="pull-right">';
+    //             dh+='                      <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="'+arr.is_show+'"></div>显示</div>       ';
+    //             dh+='</div>         ';
+    //             dh+='	</li>       ';
+    //             dh+='</ol>	    ';
+    //         }
+    //         document.getElementById('daohang').innerHTML=dh;
+    //     },
+    //     error:function(){
+    //         alert('NO');
+    //     }
+    // });
+
+
+    // $.ajax({
+    //     type: "get",
+    //     url: "http://10.20.20.128:9090/commonCor/findListByHm?sjhm=15897833568",
+    //     // async: true,
+    //     // dataType: "json",
+    //     // dataType: 'jsonp',  // 请求方式为jsonp
+    //     // jsonpCallback: "handleCallback",    // 自定义回调函数名
+    //     xhrFields: {
+    //         withCredentials: true    // 前端设置是否带cookie
+    //     },
+    //     crossDomain: true,   // 会让请求头中包含跨域的额外信息，但不会含cookie
+    //     success: function (res) {
+    //         // console.log(JSON.stringify(res))
+    //         alert(222);
+    //         alert(JSON.stringify(res));
+    //     },
+    //     error: function (err) {
+    //         // alert(111);
+    //         // alert(JSON.stringify(err));
+    //     }
+    // });
+
+
+    // var xhr = new XMLHttpRequest(); // IE8/9需用window.XDomainRequest兼容
+    //
+    // // 前端设置是否带cookie
+    // xhr.withCredentials = true;
+    //
+    // xhr.open('get', 'http://10.20.20.128:9090/commonCor/findListByHm?sjhm=15897833568', true);
+    // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    // xhr.send('user=admin');
+    //
+    // xhr.onreadystatechange = function() {
+    //     // if (xhr.readyState == 4 && xhr.status == 200) {
+    //     //     alert(xhr.responseText);
+    //     // }
+    //
+    //     alert(JSON.stringify(xhr));
+    // };
+
+
+    var list = [{
+        time: "2020-20-02 12:20:20",
+        state: "审核中",
+        result: "处理中",
+        red: "XXXXX",
+    }, {
+        time: "2020-20-02 12:20:20",
+        state: "审核中",
+        result: "处理中",
+        red: "XXXXX",
+    }, {
+        time: "2020-20-02 12:20:20",
+        state: "审核中",
+        result: "处理中",
+        red: "XXXXX",
+    }, {
+        time: "2020-20-02 12:20:20",
+        state: "审核中",
+        result: "处理中",
+        red: "XXXXX",
+    }, {
+        time: "2020-20-02 12:20:20",
+        state: "审核中",
+        result: "处理中",
+        red: "XXXXX",
+    }, ]
+    var cent = document.getElementById("main");
+    for (var i = 0; i < list.length; i++) {
+        cent.innerHTML += "<div id='' class='id-w'>" +
+            "<div id=''> " + list[i].time + "</div>" +
+            "<div id=''> " + list[i].state + "</div>" +
+            "<div id=''> " + list[i].result + "</div>" +
+            "<div id=''>" + list[i].red + "</div></div>";
+    }
+
+    var cent2 = document.getElementById("table");
+
+    for (var i = 0; i < list.length; i++) {
+        cent2.innerHTML +=
+            "<tr><td>" + list[i].time + "</td>" +
+            "<td>" + list[i].state + "</td>" +
+            "<td>" + list[i].result + "</td>" +
+            "<td>" + list[i].red + "</td></tr>";
+    }
+</script>
+<!--</body>-->
+
+</html>

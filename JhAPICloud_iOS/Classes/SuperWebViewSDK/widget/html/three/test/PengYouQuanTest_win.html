@@ -1,8 +1,9 @@
 <!doctype html>
 <html>
+
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
     <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
     <style type="text/css">
@@ -11,6 +12,7 @@
         }
     </style>
 </head>
+
 <body>
     <header class="aui-bar aui-bar-nav" id="aui-header">
         <a class="aui-btn aui-pull-left" tapmode onclick="closeWin()">
@@ -24,7 +26,7 @@
 </body>
 <script type="text/javascript" src="../../../script/api.js"></script>
 <script type="text/javascript">
-    apiready = function(){
+    apiready = function() {
         api.parseTapmode();
         var header = $api.byId('aui-header');
         $api.fixStatusBar(header);
@@ -44,9 +46,10 @@
 
 
     };
-    function closeWin(){
-        api.closeWin({
-        });
+
+    function closeWin() {
+        api.closeWin({});
     }
 </script>
+
 </html>

@@ -16,115 +16,88 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.2);
         }
-
-.bgView{
-  border-radius: 5px;
-  background-color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 290px;
-  height: 220px;
-  margin-left: -145px;
-  margin-top: -150px;
-}
-
-
-.logo {
-
-    width: 80px;
-    height: 80px;
-    margin: 0 auto;
-    margin-top: 20px;
-
-}
-
-.title{
-  width: 100%;
-  height: 30px;
-  margin: 0 auto;
-  margin-top: 20px;
-  text-align: center;
-}
-
-.flex-container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-around;
-}
-
-.flex-item {
-  width: 40%;
-  height: 35px;
-  color: white;
-  line-height: 35px;
-  text-align: center;
-    font-size: 15px;
-    border-radius: 5px;
-    background-color: #45C01A;
-}
-
-
+        
+        .bgView {
+            border-radius: 5px;
+            background-color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 290px;
+            height: 220px;
+            margin-left: -145px;
+            margin-top: -150px;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+        
+        .title {
+            width: 100%;
+            height: 30px;
+            margin: 0 auto;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .flex-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .flex-item {
+            width: 40%;
+            height: 35px;
+            color: white;
+            line-height: 35px;
+            text-align: center;
+            font-size: 15px;
+            border-radius: 5px;
+            background-color: #45C01A;
+        }
     </style>
 
 </head>
 
-
-
 <body>
 
-<div class="bgView">
- <img class="logo" src="../../image/demo/i5.png" alt=""/>
+    <div class="bgView">
+        <img class="logo" src="../../image/demo/i5.png" alt="" />
+        <div class="title">发现新版本</div>
+        <div class="flex-container">
+            <div class="flex-item" tapmode="itemOn" onclick="cancel()">稍后处理</div>
+            <div class="flex-item" tapmode="itemOn" onclick="updateNewVertion()">去更新</div>
+        </div>
 
-
- <div class="title">发现新版本</div>
-
-<div class="flex-container">
-<div class="flex-item" tapmode="itemOn" onclick="cancel()">稍后处理</div>
-<div class="flex-item" tapmode="itemOn" onclick="updateNewVertion()">去更新</div>
-</div>
-
-</div>
-
-
-
-
-
-
+    </div>
 
 </body>
 
-
 <script type="text/javascript" src="../../script/api.js"></script>
 <script>
-
-
     apiready = function() {
 
-    console.log(api.pageParam.value1);
-
-
+        console.log(api.pageParam.value1);
     }
 
-
     function cancel() {
-      console.log('cancel');
-      api.closeFrame({
+        console.log('cancel');
+        api.closeFrame({
 
-      });
+        });
     }
 
     function updateNewVertion() {
-    console.log('updateNewVertion');
-    api.closeFrame({
+        console.log('updateNewVertion');
+        api.closeFrame({
 
-    });
-
+        });
     }
-
-
-
-
 </script>
 
 </html>

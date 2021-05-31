@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>otherDemoList</title>
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <title></title>
+</head>
+
+<style type="text/css">
+    .bg-view {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .input {
+        display: block;
+        width: 80%;
+        margin-top: 15px;
+        margin-left: 10%;
+        margin-right: 10%;
+        height: 40px;
+        line-height: 40px;
+    }
+    
+    .submitBtn {
+        margin-top: 50px;
+        margin-left: 20%;
+        margin-right: 20%;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 5px;
+        background: #00A196;
+        font-size: 17px;
+        text-align: center;
+        color: white;
+    }
+</style>
+
+<body>
+
+    <div class="bg-view">
+        <input type="text" value="" placeholder="请输入姓名" class="input" id="name">
+    </div>
+    <div class="bg-view">
+        <input type="text" value="" placeholder="请输入手机号" class="input" id="phone">
+    </div>
+
+    <div class="submitBtn" id="submitBtn" onclick="clickSubmitBtn()">查 询</div>
+
+
+</body>
+<script type="text/javascript">
+    //点击查询
+    function clickSubmitBtn() {
+
+        var name = document.getElementById("name").value;
+        var phone = document.getElementById("phone").value;
+
+        jumpNext()
+
+        // $.ajax({
+        //     type: "get",
+        //     url: "http://10.20.20.128:9090/commonCor/findListByHm?sjhm=15897833568",
+        //     // url: "http://10.20.20.128:9090/commonCor/findListByHm?sjhm=" + phone + "&yh=" + name,
+        //     dataType: "json",
+        //     success: function (res) {
+        //         if (res.success) {
+        //             //跳转下个页面
+        //             jumpNext(res.data)
+        //         }
+        //     }
+        //     ,
+        //     error: function (err) {
+        //         alert("查询失败")
+        //         jumpNext()
+
+        //     }
+        // });
+    }
+
+    function jumpNext(list) {
+        list = [{
+            sbsj: "2020-20-02 12:20:20",
+            type: "审核中",
+            hbje: "XXXXX",
+        }, {
+            sbsj: "2020-20-02 12:20:20",
+            type: "审核中",
+            hbje: "XXXXX",
+        }, {
+            sbsj: "2020-20-02 12:20:20",
+            type: "审核中",
+            hbje: "XXXXX",
+        }, {
+            sbsj: "2020-20-02 12:20:20",
+            type: "审核中",
+            hbje: "XXXXX",
+        }, {
+            sbsj: "2020-20-02 12:20:20",
+            type: "审核中",
+            hbje: "XXXXX",
+        }, ]
+
+        var obj = JSON.stringify(list);
+        var url = 'search_listory.html?obj=' + obj;
+        url = encodeURI(url);
+        window.location.href = url;
+
+    }
+</script>
+
+</html>

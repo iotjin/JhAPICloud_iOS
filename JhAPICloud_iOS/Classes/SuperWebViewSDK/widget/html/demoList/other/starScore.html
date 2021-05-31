@@ -8,182 +8,165 @@
     <title>星星样式评分- 10分</title>
     <link rel="stylesheet" type="text/css" href="../../../css/api.css" />
     <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
-
     <style type="text/css">
-
-    body {
-    	background-color: white;
-    }
-
-    .aui-bar{
-      background: #45C01A;
-    }
-
-
-    .score_bg{
-        background: white;
-        padding-top: 15px;
-    }
-    .score_text1{
-        margin-left: 15px;
-        font-size: 15px;
-    }
-    .score_text2{
-        margin-top: 5px;
-        margin-left: 20px;
-        font-size: 15px;
-    }
-
-    .star_bg0{
-        margin-left: 50px;
-        display: table;
-    }
-    .star_bg{
-        background: yellow;
-        position:relative;
-        width: 50px;
-        height: 50px;
-        display: inline-block;
-    }
-    .starImg{
-        position: absolute;
-        z-index: 100;
-        display: inline-block;
-        width: 50px;
-        height: 50px;
-        pointer-events: none;
-    }
-    star_bg2{
-        position: absolute;
-        z-index: 80;
-        display: inline-block;
-    }
-
-    .star{
-        display: inline-block;
-        width: 25px;
-        height: 50px;
-        background: orange;
-    }
-
-    .line1{
-        border-bottom:1px solid gray;
-    }
-    .fen{
-      margin-top: 100px;
-      text-align: center;
-    }
-
-
+        body {
+            background-color: white;
+        }
+        
+        .aui-bar {
+            background: #45C01A;
+        }
+        
+        .score_bg {
+            background: white;
+            padding-top: 15px;
+        }
+        
+        .score_text1 {
+            margin-left: 15px;
+            font-size: 15px;
+        }
+        
+        .score_text2 {
+            margin-top: 5px;
+            margin-left: 20px;
+            font-size: 15px;
+        }
+        
+        .star_bg0 {
+            margin-left: 50px;
+            display: table;
+        }
+        
+        .star_bg {
+            background: yellow;
+            position: relative;
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+        
+        .starImg {
+            position: absolute;
+            z-index: 100;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            pointer-events: none;
+        }
+        
+        .star_bg2 {
+            position: absolute;
+            z-index: 80;
+            /* display: inline-block; */
+            display: inline-flex;
+        }
+        
+        .star {
+            display: inline-block;
+            width: 25px;
+            height: 50px;
+            background: orange;
+        }
+        
+        .line1 {
+            border-bottom: 1px solid gray;
+        }
+        
+        .fen {
+            margin-top: 100px;
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
 
+    <header class="aui-bar aui-bar-nav baseThemeColor" id="header">
+        <a class="aui-pull-left aui-btn" tapmode onclick="closeWin()">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title">星星样式评分- 10分</div>
+    </header>
 
+    <div class="score_bg">
+        <div class="score_text1">请问您对本次服务是否满意？</div>
+        <div class="score_text2">（1-10评分，1分不满意，10分非常满意）</div>
 
-  <header class="aui-bar aui-bar-nav baseThemeColor" id="header">
-      <a class="aui-pull-left aui-btn" tapmode onclick="closeWin()">
-          <span class="aui-iconfont aui-icon-left"></span>
-      </a>
-      <div class="aui-title">星星样式评分- 10分</div>
-  </header>
+    </div>
 
-  <div class="score_bg">
-      <div class="score_text1">请问您对本次服务是否满意？</div>
-      <div class="score_text2">（1-10评分，1分不满意，10分非常满意）</div>
+    <div class="star_bg0">
 
-  </div>
+        <div class="star_bg">
+            <img class="starImg" src="../../../image/evaluate_star.png">
+            <div class="star_bg2">
+                <div class="star" onclick="clickStar(1)"></div>
+                <div class="star" onclick="clickStar(2)"></div>
+            </div>
+        </div>
 
-  <div class="star_bg0">
+        <div class="star_bg">
+            <img class="starImg" src="../../../image/evaluate_star.png">
+            <div class="star_bg2">
+                <div class="star" onclick="clickStar(3)"></div>
+                <div class="star" onclick="clickStar(4)"></div>
+            </div>
+        </div>
 
-      <div class="star_bg">
-          <img class="starImg" src="../../../image/evaluate_star.png">
-          <div class="star_bg2">
-              <div class="star" onclick="clickStar(1)"></div><div class="star" onclick="clickStar(2)"></div>
-          </div>
-      </div>
+        <div class="star_bg">
+            <img class="starImg" src="../../../image/evaluate_star.png">
+            <div class="star_bg2">
+                <div class="star" onclick="clickStar(5)"></div>
+                <div class="star" onclick="clickStar(6)"></div>
+            </div>
+        </div>
 
-      <div class="star_bg">
-          <img class="starImg" src="../../../image/evaluate_star.png">
-          <div class="star_bg2">
-              <div class="star" onclick="clickStar(3)"></div><div class="star" onclick="clickStar(4)"></div>
-          </div>
-      </div>
+        <div class="star_bg">
+            <img class="starImg" src="../../../image/evaluate_star.png">
+            <div class="star_bg2">
+                <div class="star" onclick="clickStar(7)"></div>
+                <div class="star" onclick="clickStar(8)"></div>
+            </div>
+        </div>
 
-      <div class="star_bg">
-          <img class="starImg" src="../../../image/evaluate_star.png">
-          <div class="star_bg2">
-              <div class="star" onclick="clickStar(5)"></div><div class="star" onclick="clickStar(6)"></div>
-          </div>
-      </div>
+        <div class="star_bg">
+            <img class="starImg" src="../../../image/evaluate_star.png">
+            <div class="star_bg2">
+                <div class="star" onclick="clickStar(9)"></div>
+                <div class="star" onclick="clickStar(10)"></div>
+            </div>
+        </div>
 
-      <div class="star_bg">
-          <img class="starImg" src="../../../image/evaluate_star.png">
-          <div class="star_bg2">
-              <div class="star" onclick="clickStar(7)"></div><div class="star" onclick="clickStar(8)"></div>
-          </div>
-      </div>
-
-      <div class="star_bg">
-          <img class="starImg" src="../../../image/evaluate_star.png">
-          <div class="star_bg2">
-              <div class="star" onclick="clickStar(9)"></div><div class="star" onclick="clickStar(10)"></div>
-          </div>
-      </div>
-
-  </div>
-
-
-  <div class="fen" id="fen">10分</div>
-
-
+    </div>
+    <div class="fen" id="fen">10分</div>
 </body>
 
-
-
-
 <script type="text/javascript" src="../../../script/api.js"></script>
-
-
 <script>
+    var selectfraction;
+    apiready = function() {
+        $api.fixStatusBar($api.byId('header'));
+    }
 
-  var selectfraction;
-	apiready = function(){
+    function closeWin() {
+        api.closeWin({});
+    }
 
-
-    $api.fixStatusBar($api.byId('header'));
-
-
-
-	}
-
-  function closeWin(){
-      api.closeWin({
-      });
-  }
-
-  //星星 单选评价
-  function clickStar(value) {
-      event.stopPropagation();
-      console.log('点击评分'+value);
-
-      // $api.dom('.star').style.background = 'black';
-      var items = $api.domAll(".star");
-      for (var i = 0; i < items.length; i++) {
-          items[i].style.background = 'white';
-      }
-
-      for (var j = 0; j < value; j++) {
-          items[j].style.background = 'orange';
-      }
-      selectfraction = value;
-
-      $api.byId('fen').innerHTML = selectfraction+'分';
-
-  }
-
-
+    //星星 单选评价
+    function clickStar(value) {
+        event.stopPropagation();
+        console.log('点击评分' + value);
+        // $api.dom('.star').style.background = 'black';
+        var items = $api.domAll(".star");
+        for (var i = 0; i < items.length; i++) {
+            items[i].style.background = 'white';
+        }
+        for (var j = 0; j < value; j++) {
+            items[j].style.background = 'orange';
+        }
+        selectfraction = value;
+        $api.byId('fen').innerHTML = selectfraction + '分';
+    }
 </script>
 
 </html>

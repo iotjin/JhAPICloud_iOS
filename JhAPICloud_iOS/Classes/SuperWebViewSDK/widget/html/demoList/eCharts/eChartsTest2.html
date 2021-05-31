@@ -10,276 +10,252 @@
     <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
 
     <style type="text/css">
-
-    body {
-    	background-color: white;
-    }
-
-    .aui-bar{
-      background: #45C01A;
-
-    }
-
-
-
+        body {
+            background-color: white;
+        }
+        
+        .aui-bar {
+            background: #45C01A;
+        }
     </style>
 </head>
 
 <body>
 
+    <header class="aui-bar aui-bar-nav baseThemeColor" id="header">
+        <a class="aui-pull-left aui-btn" tapmode onclick="closeWin()">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title">ECharts-柱状图</div>
+    </header>
 
-
-  <header class="aui-bar aui-bar-nav baseThemeColor" id="header">
-      <a class="aui-pull-left aui-btn" tapmode onclick="closeWin()">
-          <span class="aui-iconfont aui-icon-left"></span>
-      </a>
-      <div class="aui-title">ECharts-柱状图</div>
-  </header>
-
-
-  <div id="main" style="height:200px"></div>
-
-  <div id="main2" style="height:200px"></div>
-
-  <div id="main3" style="height:200px"></div>
-
-
+    <div id="main" style="height:200px"></div>
+    <div id="main2" style="height:200px"></div>
+    <div id="main3" style="height:200px"></div>
 
 </body>
 
-
-
-
 <script type="text/javascript" src="../../../script/api.js"></script>
 <script type="text/javascript" src="../../../script/echarts-all.js"></script>
-
-
 <script>
+    var selectfraction;
+    apiready = function() {
 
-  var selectfraction;
-	apiready = function(){
+        $api.fixStatusBar($api.byId('header'));
+        initECharts();
+        initECharts2();
+        initECharts3();
+    }
 
+    function closeWin() {
+        api.closeWin({});
+    }
 
-    $api.fixStatusBar($api.byId('header'));
+    function initECharts() {
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
 
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: 'ECharts-柱状图',
+                subtext: 'subtext',
+                left: 'left'
+            },
+            //提示
+            // tooltip: {
+            // trigger: 'item',
+            // // formatter: '{a} <br/>{b} : {c} ({d}%)'
+            // },
+            //图例
+            legend: {
+                type: 'scroll',
+                orient: 'vertical',
+                right: 10,
+                top: 20,
+                bottom: 20,
+                data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "袜子"],
+                // selected: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"],
+            },
 
-    initECharts();
+            // xAxis: {
+            //      data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+            // },
+            // yAxis: {},
+            series: [{
+                // name: '贸易',
+                type: 'pie',
+                center: ['40%', '50%'], //圆心坐标
+                radius: '55%', //饼图的半径
+                data: [
+                    //  {value: 1, name: '直达', selected: true},
+                    {
+                        value: 20,
+                        name: '衬衫'
+                    }, {
+                        value: 5,
+                        name: '羊毛衫'
+                    }, {
+                        value: 12,
+                        name: '裤子'
+                    }, {
+                        value: 86,
+                        name: '羊毛衫'
+                    }, {
+                        value: 20,
+                        name: '袜子'
+                    }
+                ],
+                // labelLine: {
+                //    show: false
+                // },
+                //  label: {
+                //     show: false,
+                //     position: 'center'
+                // },
+                emphasis: {
+                    //地图区域的多边形 图形样式
+                    itemStyle: {
+                        shadowBlur: 10, //图形阴影的模糊大小
+                        shadowOffsetX: 0, //阴影垂直方向上的偏移距离
+                        shadowColor: 'rgba(0, 0, 0, 0.5)' //阴影颜色
+                    }
+                }
+            }]
+        };
 
-    initECharts2();
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    }
 
-    initECharts3();
+    function initECharts2() {
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main2'));
 
-
-	}
-
-  function closeWin(){
-      api.closeWin({
-      });
-  }
-
-
-function initECharts() {
-
-  // 基于准备好的dom，初始化echarts实例
-  var myChart = echarts.init(document.getElementById('main'));
-
-  // 指定图表的配置项和数据
-  var option = {
-      title: {
-      text: 'ECharts-柱状图',
-      subtext: 'subtext',
-      left: 'left'
-      },
-      //提示
-      // tooltip: {
-      // trigger: 'item',
-      // // formatter: '{a} <br/>{b} : {c} ({d}%)'
-      // },
-      //图例
-      legend: {
-      type: 'scroll',
-      orient: 'vertical',
-      right: 10,
-      top: 20,
-      bottom: 20,
-      data: ["衬衫","羊毛衫","雪纺衫","裤子","袜子"],
-      // selected: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"],
-      },
-
-      // xAxis: {
-      //      data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
-      // },
-      // yAxis: {},
-      series: [{
-          // name: '贸易',
-          type: 'pie',
-          center: ['40%', '50%'],    //圆心坐标
-          radius: '55%',            //饼图的半径
-          data: [
-             //  {value: 1, name: '直达', selected: true},
-              {value: 20, name: '衬衫'},
-              {value: 5, name: '羊毛衫'},
-              {value: 12, name: '裤子'},
-              {value: 86, name: '羊毛衫'},
-              {value: 20, name: '袜子'}
-          ],
-          // labelLine: {
-          //    show: false
-          // },
-          //  label: {
-          //     show: false,
-          //     position: 'center'
-          // },
-          emphasis: {
-          //地图区域的多边形 图形样式
-            itemStyle: {
-                shadowBlur: 10, //图形阴影的模糊大小
-                shadowOffsetX: 0, //阴影垂直方向上的偏移距离
-                shadowColor: 'rgba(0, 0, 0, 0.5)' //阴影颜色
-            }
-          }
-      }
-    ]
-  };
-
-  // 使用刚指定的配置项和数据显示图表。
-  myChart.setOption(option);
-
-}
-
-
-
-
-function initECharts2() {
-
-  // 基于准备好的dom，初始化echarts实例
-  var myChart = echarts.init(document.getElementById('main2'));
-
-  // 指定图表的配置项和数据
-  var option = {
-      title: {
-      text: 'ECharts-柱状图',
-      subtext: 'subtext',
-      left: 'left'
-      },
-      //提示
-      // tooltip: {
-      // trigger: 'item',
-      // // formatter: '{a} <br/>{b} : {c} ({d}%)'
-      // },
-      //图例
-      legend: {
-            orient:'vertical',
-            type: 'scroll',
-            right: 10,
-            top:'middle',
-            data: ['直达', '营销广告', '搜索引擎', '邮件营销', '联盟广告', '视频广告', '百度', '谷歌', '必应', '其他']
-         },
-         series: [
-             {
-                 // name: '访问来源',
-                 type: 'pie',
-
-                 //图例选择的模式，控制是否可以通过点击图例改变系列的显示状态。默认开启图例选择，可以设成 false 关闭。
-                  //除此之外也可以设成 'single' 或者 'multiple' 使用单选或者多选模式。
-
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: 'ECharts-柱状图',
+                subtext: 'subtext',
+                left: 'left'
+            },
+            //提示
+            // tooltip: {
+            // trigger: 'item',
+            // // formatter: '{a} <br/>{b} : {c} ({d}%)'
+            // },
+            //图例
+            legend: {
+                orient: 'vertical',
+                type: 'scroll',
+                right: 10,
+                top: 'middle',
+                data: ['直达', '营销广告', '搜索引擎', '邮件营销', '联盟广告', '视频广告', '百度', '谷歌', '必应', '其他']
+            },
+            series: [{
+                // name: '访问来源',
+                type: 'pie',
+                //图例选择的模式，控制是否可以通过点击图例改变系列的显示状态。默认开启图例选择，可以设成 false 关闭。
+                //除此之外也可以设成 'single' 或者 'multiple' 使用单选或者多选模式。
                 //  selectedMode: 'single',
-
-                 center: ['40%', '50%'],    //圆心坐标
-                 radius: '55%',            //饼图的半径
-                 label: {
-                     show: true,
-                     position: 'inner'
-                 },
-                 labelLine: {
-                     show: false
-                 },
-                 emphasis: {
+                center: ['40%', '50%'], //圆心坐标
+                radius: '55%', //饼图的半径
+                label: {
+                    show: true,
+                    position: 'inner'
+                },
+                labelLine: {
+                    show: false
+                },
+                emphasis: {
                     itemStyle: {
                         shadowBlur: 10,
                         shadowOffsetX: 0,
                         shadowColor: 'rgba(0, 0, 0, 0.5)'
                     }
                 },
-                 data: [
+                data: [
                     //  {value: 1, name: '直达', selected: true},
-                     {value: 20, name: '其他'},
-                     {value: 12, name: '营销广告'},
-                     {value: 12, name: '搜索引擎'}
-                 ]
-             },
-           ]
-  };
+                    {
+                        value: 20,
+                        name: '其他'
+                    }, {
+                        value: 12,
+                        name: '营销广告'
+                    }, {
+                        value: 12,
+                        name: '搜索引擎'
+                    }
+                ]
+            }, ]
+        };
 
-  // 使用刚指定的配置项和数据显示图表。
-  myChart.setOption(option);
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    }
 
-}
+    function initECharts3() {
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main3'));
 
-
-
-
-
-function initECharts3() {
-
-  // 基于准备好的dom，初始化echarts实例
-  var myChart = echarts.init(document.getElementById('main3'));
-
-  // 指定图表的配置项和数据
-  var option = {
-      title: {
-      text: 'ECharts-柱状图',
-      subtext: 'subtext',
-      left: 'right'
-      },
-      //提示
-      tooltip: {
-        trigger: 'item',
-        formatter: '{a} <br/>{b}: {c} ({d}%)'
-    },
-    legend: {
-        orient: 'vertical',
-        left: 10,
-        data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎'],
-    },
-    series: [
-        {
-            name: '访问来源',
-            type: 'pie',
-            radius: ['50%', '70%'],
-            avoidLabelOverlap: false,
-            emphasis: {
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: 'ECharts-柱状图',
+                subtext: 'subtext',
+                left: 'right'
+            },
+            //提示
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b}: {c} ({d}%)'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 10,
+                data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎'],
+            },
+            series: [{
+                name: '访问来源',
+                type: 'pie',
+                radius: ['50%', '70%'],
+                avoidLabelOverlap: false,
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: '20',
+                        fontWeight: 'bold'
+                    }
+                },
+                labelLine: {
+                    show: false
+                },
                 label: {
-                    show: true,
-                    fontSize: '20',
-                    fontWeight: 'bold'
-                }
-            },
-            labelLine: {
-                show: false
-            },
-             label: {
-                show: false,
-                position: 'center'
-            },
-            data: [
-                {value: 335, name: '直接访问'},
-                {value: 310, name: '邮件营销'},
-                {value: 234, name: '联盟广告'},
-                {value: 135, name: '视频广告'},
-                {value: 1548, name: '搜索引擎'}
-            ]
-        }
-    ]
-  };
+                    show: false,
+                    position: 'center'
+                },
+                data: [{
+                    value: 335,
+                    name: '直接访问'
+                }, {
+                    value: 310,
+                    name: '邮件营销'
+                }, {
+                    value: 234,
+                    name: '联盟广告'
+                }, {
+                    value: 135,
+                    name: '视频广告'
+                }, {
+                    value: 1548,
+                    name: '搜索引擎'
+                }]
+            }]
+        };
 
-  // 使用刚指定的配置项和数据显示图表。
-  myChart.setOption(option);
-
-}
-
-
-
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    }
 </script>
 
 </html>

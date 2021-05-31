@@ -10,64 +10,51 @@
     <link rel="stylesheet" type="text/css" href="../../css/aui.css" />
 
     <style type="text/css">
-
-    .aui-bar{
-      background: #45C01A;
-    }
-
-
-    #cell_item{
-    height: 50px;
-    }
-
-
+        .aui-bar {
+            background: #45C01A;
+        }
+        
+        #cell_item {
+            height: 50px;
+        }
     </style>
 </head>
 
 <body>
 
-
-  <header class="aui-bar aui-bar-nav" id="header" >
-      <a class="aui-pull-left aui-btn" tapmode onclick="closeWin()">
-          <span class="aui-iconfont aui-icon-left"></span>
-      </a>
-      <div class="aui-title">demoList</div>
-  </header>
+    <header class="aui-bar aui-bar-nav" id="header">
+        <a class="aui-pull-left aui-btn" tapmode onclick="closeWin()">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title">demoList</div>
+    </header>
 
     <div class="info-area">
-        <h2>demoList<h2>
+        <h2>demoList
+            <h2>
     </div>
 
-
-
     <ul class="aui-list aui-list-in">
-    <section id="CellList">
+        <section id="CellList">
 
-    </section>
+        </section>
     </ul>
 
+</body>
 
+<script id="template" type="text/x-dot-template">
+    {{~it:value:index}}
 
+    <li class="aui-list-item" id="cell_item" tapmode="" onclick="ClickItem( '{{=value}}' )">
+        <div class="aui-list-item-inner aui-list-item-arrow">
+            {{=value}}
+        </div>
+    </li>
 
-    </body>
+    {{~}}
+</script>
 
-
-
-
-
-    <script id="template" type="text/x-dot-template">
-        {{~it:value:index}}
-
-          <li class="aui-list-item" id="cell_item" tapmode="" onclick="ClickItem( '{{=value}}' )">
-              <div class="aui-list-item-inner aui-list-item-arrow">
-                {{=value}}
-              </div>
-          </li>
-
-        {{~}}
-    </script>
-
-    <!-- <script type="text/html" id="template">
+<!-- <script type="text/html" id="template">
          {{each}}
          <li class="aui-list-item" id="cell_item" tapmode="" onclick="ClickItem({{$value}})">
              <div class="aui-list-item-inner aui-list-item-arrow">
@@ -79,7 +66,7 @@
 
 
 
-     <!-- <script type="text/html" id="template">
+<!-- <script type="text/html" id="template">
               <%for(let i =0;i< list.length; i++){%>
           <li class="aui-list-item" id="cell_item" tapmode="" onclick="ClickItem(<%=list[i]%>)">
               <div class="aui-list-item-inner aui-list-item-arrow">
@@ -90,112 +77,103 @@
       </script> -->
 
 
-
-    <script type="text/javascript" src="../../script/api.js"></script>
-    <script type="text/javascript" src="../../script/doT.min.js"></script>
-    <!-- <script type="text/javascript" src="../../script/template-web.js"></script>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/doT.min.js"></script>
+<!-- <script type="text/javascript" src="../../script/template-web.js"></script>
     <script type="text/javascript" src="../../script/template-native.js"></script> -->
-    <script>
-
-    	apiready = function(){
-
+<script>
+    apiready = function() {
 
         $api.fixStatusBar($api.byId('header'));
-
         initData();
+    }
 
+    function closeWin() {
+        api.closeWin({});
+    }
 
-    	}
+    function initData() {
+        var ALLData = ["ListView", "GridView", "星星样式评分", "ECharts", "swiper", "other", "表单"];
+        // console.log("data---"+ JSON.stringify(ALLData));
 
-      function closeWin(){
-          api.closeWin({
-          });
-      }
+        // dot 模板
+        var tempFn = doT.template($api.text($api.byId('template')));
+        $api.html($api.byId('CellList'), tempFn(ALLData));
+        api.parseTapmode();
 
-      function initData() {
-          var ALLData = ["ListView","GridView","星星样式评分","ECharts","swiper","other"];
-          // console.log("data---"+ JSON.stringify(ALLData));
+        // // template-web 模板
+        // let html = template('template', ALLData);
+        // $api.html($api.byId('CellList'), html);
+        // api.parseTapmode();
 
-          // dot 模板
-          var tempFn = doT.template($api.text($api.byId('template')));
-          $api.html($api.byId('CellList'), tempFn(ALLData));
-          api.parseTapmode();
+        // // template-native 模板
+        // let html = template('template', {list: ALLData});
+        // $api.html($api.byId('CellList'), html);
+        // api.parseTapmode();
+    }
 
-
-          // // template-web 模板
-          // let html = template('template', ALLData);
-          // $api.html($api.byId('CellList'), html);
-          // api.parseTapmode();
-
-          // // template-native 模板
-          // let html = template('template', {list: ALLData});
-          // $api.html($api.byId('CellList'), html);
-          // api.parseTapmode();
-
-
-      }
-      function ClickItem(str) {
-
-      // console.log("data---"+ JSON.stringify(str));
+    function ClickItem(str) {
+        // console.log("data---"+ JSON.stringify(str));
         // console.log(str);
 
-                if (str == "ListView") {
-                        api.openWin({
-                            name: 'listViewDemoList',
-                            url: './listView/listViewDemoList.html',
-                            pageParam: {
-                                name: 'test'
-                            }
-                        });
+        if (str == "ListView") {
+            api.openWin({
+                name: 'listViewDemoList',
+                url: './listView/listViewDemoList.html',
+                pageParam: {
+                    name: 'test'
                 }
+            });
+        }
 
-                if (str == "GridView") {
-                        api.openWin({
-                            name: 'gridViewDemoList',
-                            url: './gridView/gridViewDemoList.html',
-                            pageParam: {
-                                name: 'test'
-                            }
-                        });
+        if (str == "GridView") {
+            api.openWin({
+                name: 'gridViewDemoList',
+                url: './gridView/gridViewDemoList.html',
+                pageParam: {
+                    name: 'test'
                 }
-                if (str == "ECharts") {
-                        api.openWin({
-                            name: 'ECharts',
-                            url: './eCharts/eChartsDemoList.html',
-                            pageParam: {
-                                name: 'test'
-                            }
-                        });
+            });
+        }
+
+        if (str == "ECharts") {
+            api.openWin({
+                name: 'ECharts',
+                url: './eCharts/eChartsDemoList.html',
+                pageParam: {
+                    name: 'test'
                 }
+            });
+        }
 
+        if (str == "星星样式评分") {
+            api.openWin({
+                name: 'starScore',
+                url: './other/starScore.html',
+            });
+        }
 
+        if (str == "swiper") {
+            api.openWin({
+                name: 'swiper',
+                url: './swiper/swiperDemoList.html',
+            });
+        }
 
-                if (str == "星星样式评分") {
-                        api.openWin({
-                            name: 'starScore',
-                            url: './other/starScore.html',
-                        });
-                }
+        if (str == "other") {
+            api.openWin({
+                name: 'other',
+                url: './other/otherDemoList.html',
+            });
+        }
 
-                if (str == "swiper") {
-                        api.openWin({
-                            name: 'swiper',
-                            url: './swiper/swiperDemoList.html',
-                        });
-                }
-                if (str == "other") {
-                        api.openWin({
-                            name: 'other',
-                            url: './other/otherDemoList.html',
-                        });
-                }
-
-
-
-      }
-
-
-
-    </script>
+        if (str == "表单") {
+            api.openWin({
+                name: 'form',
+                url: './form/form_win.html',
+            });
+        }
+    }
+</script>
 
 </html>
