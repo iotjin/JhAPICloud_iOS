@@ -248,9 +248,9 @@
 		E95529AB2048E8B20088B24D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				ED8F23CA273287C600CE4879 /* 第三方 */,
 				EDF56B9D247D13B2002E3BE5 /* ScreenShot */,
 				ED9856402399F7260076C825 /* SuperWebViewSDK */,
-				E95529F22048E8B20088B24D /* 第三方 */,
 				E9B9AA032340ADB3004DBB37 /* JhCommon */,
 				E95529B02048E8B20088B24D /* ProjectMain */,
 				E95529B62048E8B20088B24D /* Other */,
@@ -287,13 +287,6 @@
 				E95529BA2048E8B20088B24D /* PrefixHeader.pch */,
 			);
 			path = Other;
-			sourceTree = "<group>";
-		};
-		E95529F22048E8B20088B24D /* 第三方 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "第三方";
 			sourceTree = "<group>";
 		};
 		E9B9AA032340ADB3004DBB37 /* JhCommon */ = {
@@ -365,6 +358,13 @@
 				E262AB640041931B7A5280A0 /* libPods-JhAPICloud_iOS.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED8F23CA273287C600CE4879 /* 第三方 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "第三方";
 			sourceTree = "<group>";
 		};
 		ED9856402399F7260076C825 /* SuperWebViewSDK */ = {
@@ -862,7 +862,7 @@
 					"-Objc",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Jh.JhAPICloud_iOS;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Jh.APICloud-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -916,7 +916,7 @@
 					"-Objc",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Jh.JhAPICloud_iOS;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Jh.APICloud-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
